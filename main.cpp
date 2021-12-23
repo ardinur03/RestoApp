@@ -2,7 +2,7 @@
 
 int main() {
 	
-	printf("Hello RestoApp !!!");
+	printf("Hello RestoApp !");
 	
 	return 0;
 }
