@@ -1,8 +1,9 @@
 #include <iostream>
+#include "beranda.h"
 
 int main() {
 	
-	printf("Hello RestoApp !!!");
+	beranda();
 	
 	return 0;
 }
