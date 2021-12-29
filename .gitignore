@@ -1,0 +1,6 @@
+main.o
+.vscode
+Makefile.win
+RestoApp.dev
+RestoApp.layout
+RestoApp.exe
