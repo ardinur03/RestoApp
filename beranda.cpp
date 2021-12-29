@@ -1,14 +1,13 @@
 #include <iostream>
 
-int beranda() {
+void beranda() {
     
-    printf("|====================== RESTO APP ======================|\n");
-    printf("|                                                       |\n");
-    printf("| 1. Lihat Daftar Menu                                  |\n");
-    printf("| 2. Lihat Transaksi                                    |\n");
-    printf("| 3. Tutup Aplikasi                                     |\n");
-    printf("|                                                       |\n");
-    printf("|=======================================================|\n");
+    printf("\t\t|====================== RESTO APP ======================|\n");
+    printf("\t\t|                                                       |\n");
+    printf("\t\t| 1. Lihat Daftar Menu                                  |\n");
+    printf("\t\t| 2. Lihat Transaksi                                    |\n");
+    printf("\t\t| 3. Tutup Aplikasi                                     |\n");
+    printf("\t\t|                                                       |\n");
+    printf("\t\t|=======================================================|\n");
     
-    return 0;
 }
