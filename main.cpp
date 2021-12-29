@@ -4,6 +4,6 @@
 int main() {
 	
 	beranda();
-	
+
 	return 0;
 }
