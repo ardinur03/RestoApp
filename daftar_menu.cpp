@@ -40,10 +40,10 @@ void daftar_menu(){
 
 // Makanan
 void makanan(){
-     printf("\t\t|====================== Daftar Makanan ==================|\n");
+    printf("\t\t|====================== Daftar Makanan ==================|\n");
     printf("\t\t|                                                         |\n");
-    printf("\t\t| 1. Mie                                                  |\n");
-    printf("\t\t| 2. Nasi                                                 |\n");
+    printf("\t\t| 1. Mie                       Rp. 10.000.00              |\n");
+    printf("\t\t| 2. Nasi                      Rp. 5.000.00               |\n");
     printf("\t\t|                                                         |\n");
     printf("\t\t|=========================================================|\n");
 }
