@@ -4,4 +4,3 @@ Makefile.win
 RestoApp.dev
 RestoApp.layout
 RestoApp.exe
-*.exe
