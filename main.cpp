@@ -1,5 +1,6 @@
 #include <iostream>
 #include "beranda.h"
+#include "transaksi.h"
 
 int main() {
 	
@@ -22,7 +23,11 @@ int main() {
 			case 2:
 			{
 				system("cls");
-				printf("case 2\n");
+				transaksi();
+				break;
+			}
+			case 3:
+			{
 				break;
 			}
 			default:
