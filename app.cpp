@@ -1,7 +1,5 @@
 #include <iostream>
-#include "beranda.h"
-#include "transaksi.h"
-#include "daftar_menu.h"
+#include "prototype.h"
 
 int app(){
 
