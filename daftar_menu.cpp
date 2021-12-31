@@ -1,22 +1,16 @@
 #include <iostream>
-#include "app.h"
-#include "daftar_menu.h"
-
-// prototype
-void makanan();
-
-void minuman();
+#include "prototype.h"
 
 void daftar_menu(){
 	int pil = 0;
 
-    printf("\t\t|====================== Daftar Pembelian =================|\n");
-    printf("\t\t|                                                         |\n");
-    printf("\t\t| 1. Makanan                                              |\n");
-    printf("\t\t| 2. Minuman                                              |\n");
-    printf("\t\t| 3. Kembali ke Beranda                                   |\n");
-    printf("\t\t|                                                         |\n");
-    printf("\t\t|=========================================================|\n");
+    printf("\t\t|========================= Daftar Menu ====================|\n");
+    printf("\t\t|                                                          |\n");
+    printf("\t\t| 1. Makanan                                               |\n");
+    printf("\t\t| 2. Minuman                                               |\n");
+    printf("\t\t| 3. Kembali ke Beranda                                    |\n");
+    printf("\t\t|                                                          |\n");
+    printf("\t\t|==========================================================|\n");
 
     printf("\n\t Mau beli apa ?  ");
     scanf("%d", &pil);
@@ -25,13 +19,13 @@ void daftar_menu(){
         case 1:
         {
             system("cls");
-            makanan();
+            getMakanan();
             break;
         }
         case 2:
         {
             system("cls");
-            minuman();
+            getMinuman();
             break;
         }
         case 3:
@@ -46,36 +40,4 @@ void daftar_menu(){
         }
     }
 }
-
-// Makanan
-void makanan(){
-
-    int pil;
-    printf("\t\t|====================== Daftar Makanan ==============|\n");
-    printf("\t\t|                                                    |\n");
-    printf("\t\t| 1. Nasi Goreng                      Rp. 25000      |\n");
-    printf("\t\t| 2. Ayam Geprek                      Rp. 15000      |\n");
-    printf("\t\t| 3. Ikan Bakar                       Rp. 50000      |\n");
-    printf("\t\t|                                                    |\n");
-    printf("\t\t|====================================================|\n");
-
-   }
-
-
-
-// Minuman
-void minuman(){
-    printf("\t\t|====================== Daftar Minuman =============|\n");
-    printf("\t\t|                                                   |\n");
-    printf("\t\t| 1. Teh                             Rp. 3000       |\n");
-    printf("\t\t| 2. Air Mineral                     Rp. 3000       |\n");
-    printf("\t\t|                                                   |\n");
-    printf("\t\t|===================================================|\n");
-
-}
-
-
-//}
-
-
 
