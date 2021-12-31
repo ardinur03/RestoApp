@@ -1,7 +1,9 @@
 #include <iostream>
 #include "prototype.h"
 
-void getMakanan(){
+void topping_makanan();
+
+void makananMenu(){
     // local Variabel
     int pil;
 
@@ -22,19 +24,25 @@ void getMakanan(){
         case 1: // Nasi Goreng
         {
             system("cls");
-            printf("\t\t Nasi Goreng\n");
+            printf("Anda memilih : \n");
+            printf("\tMakanan : Nasi Goreng\n");
+            printf("\tHarga   : Rp. 25000\n\n");
+            
+
+            topping_makanan
+            ();
             break;
         }
         case 2: // Ayam Geprek
         {
             system("cls");
-            printf("\t\t Ayam Geprek\n");
+            printf("Ayam Geprek\n");
             break;
         }
         case 3: // Ikan Bakar
         {
             system("cls");
-            printf("\t\t Ikan Bakar\n");
+            printf("Ikan Bakar\n");
             break;
         }
         case 4: // Kembali ke Daftar Menu Pembelian
@@ -77,7 +85,8 @@ void topping_makanan(){
         }else if(pilih == 't' || pilih == 'T'){
             printf("Pesanan anda belum tercatat !");
         }else{
-            printf("Inputan anda salah !!");
+            printf("Inputan anda salah !");
         }
     }
+   
 }
