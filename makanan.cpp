@@ -83,7 +83,7 @@ void topping_makanan(){
         }else if(pilih == 't' || pilih == 'T'){
             printf("Pesanan anda belum tercatat !");
         }else{
-            printf("Inputan anda salah !");
+            printf("Inputan anda salah !!");
         }
     }
    
