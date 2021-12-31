@@ -1,7 +1,7 @@
 #include <iostream>
 #include "prototype.h"
 
-void getMinuman(){
+void minumanMenu(){
 
     int pil;
 
