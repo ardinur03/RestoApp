@@ -20,7 +20,7 @@ void getMinuman(){
     {
         case 1:
         {
-            system("clear");
+            system("cls");
             printf("Teh\n");
             break;
         }
