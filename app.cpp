@@ -7,7 +7,7 @@ int app(){
 
 	// munculkan menu utama
 	beranda();
-
+	
     for (;;){
 
 		printf("\n\t Pilih Menu : ");
