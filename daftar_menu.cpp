@@ -19,13 +19,13 @@ void daftar_menu(){
         case 1:
         {
             system("cls");
-            getMakanan();
+            makananMenu();
             break;
         }
         case 2:
         {
             system("cls");
-            getMinuman();
+            minumanMenu();
             break;
         }
         case 3:

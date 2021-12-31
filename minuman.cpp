@@ -1,7 +1,7 @@
 #include <iostream>
 #include "prototype.h"
 
-void getMinuman(){
+void minumanMenu(){
 
     int pil;
 
@@ -20,7 +20,7 @@ void getMinuman(){
     {
         case 1:
         {
-            system("clear");
+            system("cls");
             printf("Teh\n");
             break;
         }
