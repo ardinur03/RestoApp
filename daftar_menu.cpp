@@ -1,19 +1,16 @@
 #include <iostream>
-#include "app.h"
-
-// prototype
-void makanan(); 
+#include "prototype.h"
 
 void daftar_menu(){
 	int pil = 0;
 
-    printf("\t\t|====================== Daftar Pembelian =================|\n");
-    printf("\t\t|                                                         |\n");
-    printf("\t\t| 1. Makanan                                              |\n");
-    printf("\t\t| 2. Minuman                                              |\n");
-    printf("\t\t| 3. Kembali ke Beranda                                   |\n");
-    printf("\t\t|                                                         |\n");
-    printf("\t\t|=========================================================|\n");
+    printf("\t\t|========================= Daftar Menu ====================|\n");
+    printf("\t\t|                                                          |\n");
+    printf("\t\t| 1. Makanan                                               |\n");
+    printf("\t\t| 2. Minuman                                               |\n");
+    printf("\t\t| 3. Kembali ke Beranda                                    |\n");
+    printf("\t\t|                                                          |\n");
+    printf("\t\t|==========================================================|\n");
 
     printf("\n\t Mau beli apa ?  ");
     scanf("%d", &pil);
@@ -22,7 +19,13 @@ void daftar_menu(){
         case 1:
         {
             system("cls");
-            makanan();
+            getMakanan();
+            break;
+        }
+        case 2:
+        {
+            system("cls");
+            getMinuman();
             break;
         }
         case 3:
@@ -38,15 +41,3 @@ void daftar_menu(){
     }
 }
 
-// Makanan
-void makanan(){
-    printf("\t\t|====================== Daftar Makanan ==================|\n");
-    printf("\t\t|                                                         |\n");
-    printf("\t\t| 1. Mie                       Rp. 10.000.00              |\n");
-    printf("\t\t| 2. Nasi                      Rp. 5.000.00               |\n");
-    printf("\t\t|                                                         |\n");
-    printf("\t\t|=========================================================|\n");
-}
-
-
-// Minuman
