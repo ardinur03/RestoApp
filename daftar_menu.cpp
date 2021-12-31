@@ -1,8 +1,11 @@
 #include <iostream>
 #include "app.h"
+#include "daftar_menu.h"
 
 // prototype
-void makanan(); 
+void makanan();
+
+void minuman();
 
 void daftar_menu(){
 	int pil = 0;
@@ -25,6 +28,12 @@ void daftar_menu(){
             makanan();
             break;
         }
+        case 2:
+        {
+            system("cls");
+            minuman();
+            break;
+        }
         case 3:
         {
             system("cls");
@@ -40,13 +49,33 @@ void daftar_menu(){
 
 // Makanan
 void makanan(){
-    printf("\t\t|====================== Daftar Makanan ==================|\n");
-    printf("\t\t|                                                         |\n");
-    printf("\t\t| 1. Mie                       Rp. 10.000.00              |\n");
-    printf("\t\t| 2. Nasi                      Rp. 5.000.00               |\n");
-    printf("\t\t|                                                         |\n");
-    printf("\t\t|=========================================================|\n");
-}
+
+    int pil;
+    printf("\t\t|====================== Daftar Makanan ==============|\n");
+    printf("\t\t|                                                    |\n");
+    printf("\t\t| 1. Nasi Goreng                      Rp. 25000      |\n");
+    printf("\t\t| 2. Ayam Geprek                      Rp. 15000      |\n");
+    printf("\t\t| 3. Ikan Bakar                       Rp. 50000      |\n");
+    printf("\t\t|                                                    |\n");
+    printf("\t\t|====================================================|\n");
+
+   }
+
 
 
 // Minuman
+void minuman(){
+    printf("\t\t|====================== Daftar Minuman =============|\n");
+    printf("\t\t|                                                   |\n");
+    printf("\t\t| 1. Teh                             Rp. 3000       |\n");
+    printf("\t\t| 2. Air Mineral                     Rp. 3000       |\n");
+    printf("\t\t|                                                   |\n");
+    printf("\t\t|===================================================|\n");
+
+}
+
+
+//}
+
+
+
