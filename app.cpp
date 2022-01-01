@@ -6,7 +6,11 @@ int app(){
     int pil = 0;
 
 	// munculkan menu utama
+	system("cls");
 	beranda();
+
+	// buat file data_transaksi.dat
+	buat_file_transaksi();
 	
     for (;;){
 

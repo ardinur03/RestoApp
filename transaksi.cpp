@@ -1,20 +1,18 @@
 #include <iostream>
-
-typedef struct
-{
-    char nama[3];
-    char pesanan[11];
-    float harga_total;
-} Pembeli;
+#include "transaksi.h"
 
 void transaksi(){
     Pembeli dt;
     FILE *f_pembeli;
-    if ((f_pembeli = fopen("data_transaksi.dat", "r")) == NULL)
+
+    if ((f_pembeli = fopen("data_transaksi.dat", "rt")) == NULL)
     {
         printf("File tidak dapat dibuka\n");
         exit(1);
     }
+
+       
+
     printf("\nISI FILE data_transaksi.dat ADALAH : \n\n");
     printf("Nama | Pesanan | Harga Toral \n");
     while (!feof(f_pembeli))
@@ -24,5 +22,18 @@ void transaksi(){
     }
     fclose(f_pembeli);
 }
+
+void buat_file_transaksi(){
+    // buat file transaksi
+	Pembeli dt;
+    FILE *f_pembeli;
+	if ( (f_pembeli=fopen("data_transaksi.dat","wb")) == NULL )
+    {
+        printf("File tidak dapat dibuat!\r\n");
+        exit(1);
+    }
+}
+
+
 
 
