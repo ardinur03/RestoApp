@@ -69,41 +69,41 @@ void toppingTeh(){
         printf("\t\t|                                                    |\n");
         printf("\t\t|====================================================|\n");
 
-         printf("\n\t Minuman apa yang ingin anda beli ?  ");
-    scanf("%d", &DP);
-    switch (DP)
-    {
-        case 1:
+        printf("\n\t Minuman apa yang ingin anda beli ?  ");
+        scanf("%d", &DP);
+        switch (DP)
         {
-            system("cls");
-            printf("Teh\n");
-            printf("\n\t Minuman : Teh panas");
-            printf("\n\t Harga   : Rp. 4000 \n");
+            case 1:
+            {
+                system("cls");
+                printf("Teh\n");
+                printf("\n\t Minuman : Teh panas");
+                printf("\n\t Harga   : Rp. 4000 \n");
 
-            toppingTeh();
-            break;
+                toppingTeh();
+                break;
+            }
+            case 2:
+            {
+                system("cls");
+                printf("Air mineral\n");
+                printf("\n\t Minuman : Teh Dingin ");
+                printf("\n\t Harga   : Rp. 4000");
+                break;
+            }
+            case 3:
+            {
+                system("cls");
+                daftar_menu();
+                break;
+            }
+            default:
+            {
+                break;
+            }
         }
-        case 2:
-        {
-            system("cls");
-            printf("Air mineral\n");
-            printf("\n\t Minuman : Teh Dingin ");
-            printf("\n\t Harga   : Rp. 4000");
-            break;
-        }
-        case 3:
-        {
-            system("cls");
-            daftar_menu();
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
 
-    }else{
+    }else if (pilih == 't' || pilih == 'T'){
         printf("Apakah anda ingin sudahi pesanan? (y/t) ");
         scanf("%s", &pilih);
         if(pilih == 'y' || pilih == 'Y'){

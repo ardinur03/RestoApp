@@ -91,7 +91,7 @@ void topping_makanan(){
         printf("\t\t|                                                    |\n");
         printf("\t\t|====================================================|\n");
 
-            printf("\n\t Makanan apa yang ingin anda beli ?  ");
+        printf("\n\t Topping apa yang ingin anda tambahkan ?  ");
             scanf("%d", &pilTop);
             switch (pilTop)
             {

@@ -1,8 +1,11 @@
 #include <iostream>
 #include "app.h"
+#include "beranda.h"
 
 int main() {
-	// panggil modul app
-	app();
+	
+	welcome();
+
 	return 0;
 }
+
