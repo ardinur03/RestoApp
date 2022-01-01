@@ -10,7 +10,7 @@ void welcome(){
     printf("|                         SELAMAT DATANG                      |\n");
     printf("!=============================================================|\n");
     printf("|                                                             |\n");
-    printf("|                      Y. Mulai Memesan                       |\n");
+    printf("|                      Y. Mulai Memesan Makanan                       |\n");
     printf("|   T. Tentang                                  E. Keluar     |\n");
     printf("!=============================================================|\n");
     printf("|                 Copyright 2021 - RestoApp                   |\n");
