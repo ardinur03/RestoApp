@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 #include "prototype.h"
 
 void topping_makanan();
@@ -156,7 +157,7 @@ void topping_ayamgeprek(){
     printf("\n\tApakah ingin pakai Nasi ? (y/t) ");
     scanf(" %s", &pilih);
 
-       if (pilih == 'y' || pilih == 'Y')
+    if (pilih == 'y' || pilih == 'Y')
     {
         system("cls");
         printf("\t\t|====================== Daftar Topping ==============|\n");
@@ -205,6 +206,9 @@ void topping_ayamgeprek(){
 
             system("cls");
             printf("\tPesanan anda sudah tercatat !\n");
+            printf("Tekan enter untuk melanjutkan . . .");
+            getche();
+            system("cls");
             printf("\tBerikut Pesanan Anda :");
             printf("\n\n\t Makanan : Ayam Geprek");
             printf("\n\t Harga   : RP. 15000");
