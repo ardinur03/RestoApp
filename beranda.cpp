@@ -21,7 +21,7 @@ void welcome(){
     if (pilih == 'y' || pilih == 'Y')
     {
         system("cls");
-        getNama();
+        // getNama();
     	app();
     }else if (pilih == 't' || pilih == 'T'){
         system("cls");
