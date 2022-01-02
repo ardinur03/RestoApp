@@ -1,5 +1,6 @@
 #include <iostream>
 #include "prototype.h"
+#include <conio.h>
 
 void toppingTeh();
 
@@ -55,40 +56,64 @@ void toppingTeh(){
     int DP;
     char pilih;
 
-    printf("\n\t Teh Panas ? (y/t) ");
+    printf("\n\t Pilih Topping Teh ? (y/t) ");
     scanf("%s", &pilih);
 
     if (pilih == 'y' || pilih == 'Y')
     {
-        printf("\t\t|====================== Daftar Teh ==================|\n");
+        printf("\t\t|==================== Topping Teh ===================|\n");
         printf("\t\t|                                                    |\n");
         printf("\t\t| Nama Topping                        Harga          |\n");
-        printf("\t\t| 1. Panas                           Rp. 1000        |\n");
+        printf("\t\t| 1. Manis Panas                     Rp. 2000        |\n");
         printf("\t\t| 2. Dingin                          Rp. 1000        |\n");
         printf("\t\t| 3. Kembali ke Daftar Menu Pembelian                |\n");
         printf("\t\t|                                                    |\n");
         printf("\t\t|====================================================|\n");
 
-        printf("\n\t Minuman apa yang ingin anda beli ?  ");
+        printf("\n\t Toping apa yang ingin anda pilih ?  ");
         scanf("%d", &DP);
         switch (DP)
         {
             case 1:
             {
                 system("cls");
-                printf("Teh\n");
-                printf("\n\t Minuman : Teh panas");
-                printf("\n\t Harga   : Rp. 4000 \n");
+                printf("\n\t Pesanan Anda Tercatat ");
+                printf("Tekan enter untuk melanjutkan . . .");
 
-                toppingTeh();
+                getche();
+
+                system("cls");
+                printf("Anda Memilih\n");
+                printf("\n\t Minuman      : Teh              Rp. 3000");
+                printf("\n\t Topping      : Manis Panas      Rp. 2000");
+                printf("\n\t Harga Total  : Rp. 5000 \n");
+
+                printf("\n\t Silahkan tekan enter untuk kembali ke Menu makanan ");
+
+                getche();
+
+                daftar_menu();
                 break;
             }
             case 2:
             {
                 system("cls");
-                printf("Air mineral\n");
-                printf("\n\t Minuman : Teh Dingin ");
-                printf("\n\t Harga   : Rp. 4000");
+                printf("\n\t Pesanan Anda Tercatat ");
+                printf("Tekan enter untuk melanjutkan . . .");
+
+                getche();
+
+                system("cls");
+                printf("Anda Memilih\n");
+                printf("\n\t Minuman      : Teh          Rp. 3000");
+                printf("\n\t Topping      : Dingin       Rp. 1000");
+                printf("\n\t Harga Total  : Rp. 4000");
+                printf("\n\t Silahkan tekan enter untuk kembali ke Menu makanan ");
+
+                getche();
+
+                daftar_menu();
+
                 break;
             }
             case 3:
@@ -104,16 +129,37 @@ void toppingTeh(){
         }
 
     }else if (pilih == 't' || pilih == 'T'){
+        kembali:
         printf("Apakah anda ingin sudahi pesanan? (y/t) ");
         scanf("%s", &pilih);
         if(pilih == 'y' || pilih == 'Y'){
+            system("cls");
             printf("Pesanan anda sudah tercatat !");
             printf("\n\t Minuman : Teh Panas");
             printf("\n\t Harga   : RP. 4000");
+
+            printf("\n\t Silahkan tekan enter untuk kembali ke Menu makanan ");
+
+            getche();
+
+            daftar_menu();
+
         }else if(pilih == 't' || pilih == 'T'){
+            system("cls");
             printf("Pesanan anda belum tercatat !");
+            printf("\n\t Tekan Enter Untuk Kembali");
+
+            getche();
+
+            daftar_menu();
         }else{
+            system("cls");
             printf("Inputan anda salah !");
+            printf("\n\t Tekan Enter Untuk Kembali");
+
+            getche();
+
+            goto kembali;
         }
     }
    
