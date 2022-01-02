@@ -100,7 +100,7 @@ void topping_makanan(){
                 {
                     system("cls");
                     printf("\n\t Pesanan Anda Tercatat ");
-                    printf("Tekan enter untuk melanjutkan . . .");
+                    printf("\n\t Tekan enter untuk melanjutkan . . .");
 
                     getche();
 
@@ -114,7 +114,7 @@ void topping_makanan(){
                 {
                     system("cls");
                     printf("\n\t Pesanan Anda Tercatat ");
-                    printf("Tekan enter untuk melanjutkan . . .");
+                    printf("\n\t Tekan enter untuk melanjutkan . . .");
 
                     getche();
 
@@ -140,8 +140,8 @@ void topping_makanan(){
         if(pilih == 'y' || pilih == 'Y'){
 
             system("cls");
-            printf("\tPesanan anda sudah tercatat !\n");
-            printf("Tekan enter untuk melanjutkan . . .");
+            printf("\tPesanan anda sudah tercatat !");
+            printf("\n\tTekan enter untuk melanjutkan . . .");
 
             getche();
 
@@ -194,7 +194,7 @@ void topping_ayamgeprek(){
                 {
                     system("cls");
                     printf("\n\t Pesanan Anda Tercatat ");
-                    printf("Tekan enter untuk melanjutkan . . .");
+                    printf("\n\t Tekan enter untuk melanjutkan . . .");
 
                     getche();
 
@@ -209,7 +209,7 @@ void topping_ayamgeprek(){
                 {
                     system("cls");
                     printf("\n\t Pesanan Anda Tercatat ");
-                    printf("Tekan enter untuk melanjutkan . . .");
+                    printf("\n\t Tekan enter untuk melanjutkan . . .");
 
                     getche();
 
@@ -236,8 +236,8 @@ void topping_ayamgeprek(){
         if(pilih == 'y' || pilih == 'Y'){
 
             system("cls");
-            printf("\tPesanan anda sudah tercatat !\n");
-            printf("Tekan enter untuk melanjutkan . . .");
+            printf("\n\tPesanan anda sudah tercatat !");
+            printf("\n\tTekan enter untuk melanjutkan . . .");
 
             getche();
 
@@ -292,7 +292,7 @@ void topping_ikan()
                 {
                     system("cls");
                     printf("\n\t Pesanan Anda Tercatat ");
-                    printf("Tekan enter untuk melanjutkan . . .");
+                    printf("\n\t Tekan enter untuk melanjutkan . . .");
 
                     getche();
 
@@ -307,7 +307,7 @@ void topping_ikan()
                 {
                     system("cls");
                     printf("\n\t Pesanan Anda Tercatat ");
-                    printf("Tekan enter untuk melanjutkan . . .");
+                    printf("\n\t Tekan enter untuk melanjutkan . . .");
 
                     getche();
 
@@ -335,8 +335,8 @@ void topping_ikan()
         if(pilih == 'y' || pilih == 'Y'){
 
             system("cls");
-            printf("\tPesanan anda sudah tercatat !\n");
-            printf("Tekan enter untuk melanjutkan . . .");
+            printf("\n\tPesanan anda sudah tercatat !");
+            printf("\n\tTekan enter untuk melanjutkan . . .");
 
             getche();
 
