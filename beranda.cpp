@@ -21,7 +21,7 @@ void welcome(){
     if (pilih == 'y' || pilih == 'Y')
     {
         system("cls");
-        // getNama();
+        getNama();
     	app();
     }else if (pilih == 't' || pilih == 'T'){
         system("cls");
@@ -40,7 +40,6 @@ void welcome(){
 
 
 void beranda() {
-    
     printf("\t\t|====================== RESTO APP ======================|\n");
     printf("\t\t|                                                       |\n");
     printf("\t\t| 1. Lihat Daftar Menu                                  |\n");
