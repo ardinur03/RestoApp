@@ -4,6 +4,7 @@
 void daftar_menu(){
 	int pil = 0;
 
+    system("cls");
     printf("\t\t|========================= Daftar Menu ====================|\n");
     printf("\t\t|                                                          |\n");
     printf("\t\t| 1. Makanan                                               |\n");
