@@ -20,24 +20,21 @@ void transaksi(){
     printf("| ID      Nama      Makanan     Minuman       Harga normal       Diskon       Harga Total  |\n");
     printf("|==========================================================================================|\n");
 
-    // while ((fread(&dt_pelanggan, sizeof(dt_pelanggan), JUM_BLOK, f_pelanggan)) == JUM_BLOK)
-	// {
-	// 	printf("  %-5d %-10s %-10s %-10d %-10li\n", dt_pelanggan.code, dt_pelanggan.name, dt_pelanggan.type, dt_pelanggan.total, dt_pelanggan.price);
-	// }
+    while ((fread(&dt_pelanggan, sizeof(dt_pelanggan), JUM_BLOK, f_pelanggan)) == JUM_BLOK)
+	{
+		printf("  %-5d %-10s %-10s %-10s %-10d %-10d %-10d\n", dt_pelanggan.id_transaksi, dt_pelanggan.nama, dt_pelanggan.makanan, dt_pelanggan.minuman, dt_pelanggan.harga_normal, dt_pelanggan.diskon, dt_pelanggan.harga_total);
+	}
 
-    // while (!feof(f_pelanggan))
-    // {
-    //     fscanf(f_pelanggan, "%s %s %f", &dt.nama, &dt.pelanggan, &dt.harga_total);
-    //     printf("%s %s %3.2f\n", dt.nama, dt.pelanggan, dt.harga_total);
-    // }
-    // fclose(f_pelanggan);
+    fclose(f_pelanggan);
 }
 
 void buat_file_transaksi(){
     // buat file transaksi
 	pelanggan dt;
     FILE *f_pelanggan;
-	if ( (f_pelanggan=fopen("data_transaksi.dat","wb")) == NULL )
+
+    f_pelanggan=fopen("data_transaksi.dat","wb");
+	if (!f_pelanggan)
     {
         printf("File tidak dapat dibuat!\r\n");
         exit(1);
