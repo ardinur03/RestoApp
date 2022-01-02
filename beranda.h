@@ -3,5 +3,4 @@
 
 void beranda();
 void welcome();
-
 #endif

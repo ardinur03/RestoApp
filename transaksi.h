@@ -4,6 +4,7 @@
 
 void transaksi();
 void buat_file_transaksi();
+void input_transaksi();
 
 typedef struct
 {
@@ -11,9 +12,9 @@ typedef struct
     char nama[20];
     char makanan[20];
     char minuman[20];
-    float harga_normal;
-    float diskon;
-    float harga_total;
+    int harga_normal;
+    int diskon;
+    int harga_total;
 } Transaksi;
 
 #endif

@@ -40,6 +40,7 @@ void welcome(){
 
 
 void beranda() {
+    system("cls");
     printf("\t\t|====================== RESTO APP ======================|\n");
     printf("\t\t|                                                       |\n");
     printf("\t\t| 1. Lihat Daftar Menu                                  |\n");

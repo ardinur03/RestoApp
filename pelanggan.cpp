@@ -17,8 +17,8 @@ void getNama() {
     fflush(stdin);
     scanf("%d", &dt_pelanggan.id_pelanggan);
 
-    // cek inputan id tidak melebihi 1 digit
-    if (dt_pelanggan.id_pelanggan > 9) {
+    // cek inputan id tidak melebihi 2 digit
+    if (dt_pelanggan.id_pelanggan > 99) {
         printf("VALIDATE WARNING : ID tidak boleh lebih dari 1 digit !\n");
         // input ulang id pelanggan
         printf("\n klik enter untuk kembali ...");
@@ -47,10 +47,10 @@ void getNama() {
         exit(1);
     }
     fwrite(&dt_pelanggan, sizeof(dt_pelanggan), 1, f_pelanggan);
+    fclose(f_pelanggan);
 }
 
 void readPelanggan(){
-
     // read file pelanggan.dat
     f_pelanggan = fopen("pelanggan.dat", "rb");
     if(!f_pelanggan) {
@@ -77,6 +77,7 @@ void readPelanggan(){
 // cek id pelanggan
 int cekIdPelanggan(pelanggan dt_pelanggan, int id) {
 	f_pelanggan = fopen("pelanggan.dat", "rt"); // buka file pelanggan.dat menggunakan "rt"
+    
     while(fread(&dt_pelanggan, sizeof(dt_pelanggan), 1, f_pelanggan)) {
         if(id == dt_pelanggan.id_pelanggan) {
             fclose(f_pelanggan);
