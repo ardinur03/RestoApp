@@ -21,14 +21,14 @@ void welcome(){
     if (pilih == 'y' || pilih == 'Y')
     {
         system("cls");
-        // getNama();
+        getNama();
     	app();
     }else if (pilih == 't' || pilih == 'T'){
         system("cls");
         printf("\n\t Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam suscipit corrupti sequi incidunt eaque rerum dolore nam laboriosam eos, error placeat. Similique, sequi.\n");
-        
     }else if (pilih == 'e' || pilih == 'E'){
         system("cls");
+        readPelanggan();
     }else{
         system("cls");
         printf("\n\t Inputan yang anda masukkan salah !!! ");
@@ -40,7 +40,6 @@ void welcome(){
 
 
 void beranda() {
-    
     printf("\t\t|====================== RESTO APP ======================|\n");
     printf("\t\t|                                                       |\n");
     printf("\t\t| 1. Lihat Daftar Menu                                  |\n");

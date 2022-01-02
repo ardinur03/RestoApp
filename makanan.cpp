@@ -29,7 +29,7 @@ void makananMenu(){
             system("cls");
             printf("Anda memilih : \n");
             printf("\tMakanan : Nasi Goreng\n");
-            printf("\tHarga   : Rp. 25000\n\n");
+            printf("\tHarga   : Rp. 25000\n");
             
 
             topping_makanan();
@@ -100,28 +100,39 @@ void topping_makanan(){
                 {
                     system("cls");
                     printf("\n\t Pesanan Anda Tercatat ");
-                    printf("Tekan enter untuk melanjutkan . . .");
+                    printf("\n\t Tekan enter untuk melanjutkan . . .");
 
                     getche();
 
                     system("cls");
                     printf("Anda memilih : \n");
                     printf("\tMakanan : Nasi Goreng Pedas\n");
-                    printf("\tHarga   : Rp. 26000\n\n");
+                    printf("\tHarga   : Rp. 26000");
+                    printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
+
+                    getche();
+                    
+                    daftar_menu();
                     break;
                 }
                 case 2:
                 {
                     system("cls");
                     printf("\n\t Pesanan Anda Tercatat ");
-                    printf("Tekan enter untuk melanjutkan . . .");
+                    printf("\n\t Tekan enter untuk melanjutkan . . .");
 
                     getche();
 
                     system("cls");
                     printf("Anda memilih : \n");
                     printf("\tMakanan : Nasi Goreng + 1/2 porsi\n");
-                    printf("\tHarga   : Rp. 36000\n\n");
+                    printf("\tHarga   : Rp. 36000");
+                    printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
+
+                    getche();
+
+                    daftar_menu();
+
                     break;
                 }
                 default:
@@ -140,8 +151,8 @@ void topping_makanan(){
         if(pilih == 'y' || pilih == 'Y'){
 
             system("cls");
-            printf("\tPesanan anda sudah tercatat !\n");
-            printf("Tekan enter untuk melanjutkan . . .");
+            printf("\tPesanan anda sudah tercatat !");
+            printf("\n\tTekan enter untuk melanjutkan . . .");
 
             getche();
 
@@ -149,6 +160,11 @@ void topping_makanan(){
             printf("\tBerikut Pesanan Anda :");
             printf("\n\n\t Makanan : Nasi Goreng");
             printf("\n\t Harga   : RP. 25000");
+            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
+
+            getche();
+                    
+            daftar_menu();
 
         }else if(pilih == 't' || pilih == 'T'){
 
@@ -158,7 +174,7 @@ void topping_makanan(){
             scanf(" %d", &akhir);
             if(akhir == 1 )
                 system("cls");
-                daftar_menu();
+                beranda();
         }else{
             printf("Inputan anda salah !");
         }
@@ -181,12 +197,12 @@ void topping_ayamgeprek(){
         printf("\t\t|                                                    |\n");
         printf("\t\t| Nama Topping                        Harga          |\n");
         printf("\t\t| 1. Nasi                            Rp. 5000        |\n");
-        printf("\t\t| 2. Kentang                         Rp. 5000       |\n");
+        printf("\t\t| 2. Kentang                         Rp. 5000        |\n");
         printf("\t\t| 3. Kembali ke Daftar Menu Pembelian                |\n");
         printf("\t\t|                                                    |\n");
         printf("\t\t|====================================================|\n");
 
-            printf("\n\t Makanan apa yang ingin anda beli ?  ");
+            printf("\n\t Topping apa yang ingin anda pilih ?  ");
             scanf("%d", &pilTop);
             switch (pilTop)
             {
@@ -194,7 +210,7 @@ void topping_ayamgeprek(){
                 {
                     system("cls");
                     printf("\n\t Pesanan Anda Tercatat ");
-                    printf("Tekan enter untuk melanjutkan . . .");
+                    printf("\n\t Tekan enter untuk melanjutkan . . .");
 
                     getche();
 
@@ -202,14 +218,19 @@ void topping_ayamgeprek(){
                     printf("Anda memilih : \n");
                     printf("\tMakanan      : Ayam Geprek         Rp. 15000\n");
                     printf("\tTopping      : Nasi                Rp. 5000\n");
-                    printf("\tHarga Total  : Rp. 20000 \n\n");
+                    printf("\tHarga Total  : Rp. 20000 ");
+                    printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
+
+                    getche();
+                    
+                    daftar_menu();
                     break;
                 }
                 case 2:
                 {
                     system("cls");
                     printf("\n\t Pesanan Anda Tercatat ");
-                    printf("Tekan enter untuk melanjutkan . . .");
+                    printf("\n\t Tekan enter untuk melanjutkan . . .");
 
                     getche();
 
@@ -217,7 +238,12 @@ void topping_ayamgeprek(){
                     printf("Anda memilih : \n");
                     printf("\tMakanan      : Ayam Geprek         Rp. 15000\n");
                     printf("\tTopping      : Kentang             Rp. 5000\n");
-                    printf("\tHarga Total  : Rp. 20000\n\n");
+                    printf("\tHarga Total  : Rp. 20000");
+                    printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
+
+                    getche();
+                    
+                    daftar_menu();
                     break;
                 }
                 default:
@@ -236,8 +262,8 @@ void topping_ayamgeprek(){
         if(pilih == 'y' || pilih == 'Y'){
 
             system("cls");
-            printf("\tPesanan anda sudah tercatat !\n");
-            printf("Tekan enter untuk melanjutkan . . .");
+            printf("\n\tPesanan anda sudah tercatat !");
+            printf("\n\tTekan enter untuk melanjutkan . . .");
 
             getche();
 
@@ -245,6 +271,11 @@ void topping_ayamgeprek(){
             printf("\tBerikut Pesanan Anda :\n");
             printf("\n\t Makanan      : Ayam Geprek");
             printf("\n\t Harga Total  : RP. 15000");
+            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
+
+            getche();
+                    
+            daftar_menu();
 
         }else if(pilih == 't' || pilih == 'T'){
 
@@ -254,7 +285,7 @@ void topping_ayamgeprek(){
             scanf(" %d", &akhir);
             if(akhir == 1 )
                 system("cls");
-                daftar_menu();
+                beranda();
                 
         }else{
             printf("Inputan anda salah !");
@@ -269,7 +300,7 @@ void topping_ikan()
     int pilTop;
     char pilih; //var lokal
 
-    printf("\n\t Apakah ingin memilih ikan ? (y/t) ");
+    printf("\n\tApakah ingin memilih ikan ? (y/t) ");
     scanf(" %s", &pilih);
 
     if (pilih == 'y' || pilih == 'Y')
@@ -292,7 +323,7 @@ void topping_ikan()
                 {
                     system("cls");
                     printf("\n\t Pesanan Anda Tercatat ");
-                    printf("Tekan enter untuk melanjutkan . . .");
+                    printf("\n\t Tekan enter untuk melanjutkan . . .");
 
                     getche();
 
@@ -300,14 +331,19 @@ void topping_ikan()
                     printf("Anda memilih : \n");
                     printf("\tMakanan : Ikan Bakar          Rp. 50000\n");
                     printf("\tJenis   : Ikan Mas            Rp. 50000\n");
-                    printf("\tHarga   : Rp. 50000 \n\n");
+                    printf("\tHarga   : Rp. 50000 ");
+                    printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
+
+                    getche();
+                    
+                    daftar_menu();
                     break;
                 }
                 case 2:
                 {
                     system("cls");
                     printf("\n\t Pesanan Anda Tercatat ");
-                    printf("Tekan enter untuk melanjutkan . . .");
+                    printf("\n\t Tekan enter untuk melanjutkan . . .");
 
                     getche();
 
@@ -315,7 +351,12 @@ void topping_ikan()
                     printf("Anda memilih : \n");
                     printf("\tMakanan    : Ikan Bakar       Rp. 50000\n");
                     printf("\tJenis Ikan : Ikan Gurame      Rp. 80000\n");
-                    printf("\tHarga      : Rp. 80000\n\n");
+                    printf("\tHarga      : Rp. 80000");
+                    printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
+
+                    getche();
+                    
+                    daftar_menu();
                     break;
                 }
                 default:
@@ -335,8 +376,8 @@ void topping_ikan()
         if(pilih == 'y' || pilih == 'Y'){
 
             system("cls");
-            printf("\tPesanan anda sudah tercatat !\n");
-            printf("Tekan enter untuk melanjutkan . . .");
+            printf("\n\tPesanan anda sudah tercatat !");
+            printf("\n\tTekan enter untuk melanjutkan . . .");
 
             getche();
 
@@ -344,6 +385,11 @@ void topping_ikan()
             printf("\tBerikut Pesanan Anda :");
             printf("\n\n\t Makanan : Ikan Mas");
             printf("\n\t Harga   : RP. 50000");
+            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
+
+            getche();
+                    
+            daftar_menu();
 
         }else if(pilih == 't' || pilih == 'T'){
 
@@ -353,7 +399,7 @@ void topping_ikan()
             scanf(" %d", &akhir);
             if(akhir == 1 )
                 system("cls");
-                daftar_menu();
+                beranda();
                 
         }else{
             printf("Inputan anda salah !");
