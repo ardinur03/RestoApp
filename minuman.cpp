@@ -102,6 +102,7 @@ void toppingTeh(){
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 printf("\n\tPesanan Anda Tercatat ");
                 printf("\n\tTekan enter untuk melanjutkan . . .");
 =======
@@ -120,6 +121,10 @@ void toppingTeh(){
                 printf("\n\t Pesanan Anda Tercatat ");
                 printf("Tekan enter untuk melanjutkan . . .");
 >>>>>>> 39ad1ddb337477e3b9c88cf526591cac2aa11acd
+=======
+                printf("\n\t Pesanan Anda Tercatat ");
+                printf("Tekan enter untuk melanjutkan . . .");
+>>>>>>> view_home
 
                 getche();
 
