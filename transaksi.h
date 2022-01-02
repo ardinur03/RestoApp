@@ -14,5 +14,6 @@ typedef struct
     float harga_normal;
     float diskon;
     float harga_total;
-} pelanggan;
+} Transaksi;
+
 #endif

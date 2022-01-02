@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o beranda.o daftar_menu.o transaksi.o
-LINKOBJ  = main.o beranda.o daftar_menu.o transaksi.o
+OBJ      = main.o app.o beranda.o daftar_menu.o makanan.o minuman.o pelanggan.o transaksi.o
+LINKOBJ  = main.o app.o beranda.o daftar_menu.o makanan.o minuman.o pelanggan.o transaksi.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -27,11 +27,23 @@ $(BIN): $(OBJ)
 main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
 
+app.o: app.cpp
+	$(CPP) -c app.cpp -o app.o $(CXXFLAGS)
+
 beranda.o: beranda.cpp
 	$(CPP) -c beranda.cpp -o beranda.o $(CXXFLAGS)
 
 daftar_menu.o: daftar_menu.cpp
 	$(CPP) -c daftar_menu.cpp -o daftar_menu.o $(CXXFLAGS)
+
+makanan.o: makanan.cpp
+	$(CPP) -c makanan.cpp -o makanan.o $(CXXFLAGS)
+
+minuman.o: minuman.cpp
+	$(CPP) -c minuman.cpp -o minuman.o $(CXXFLAGS)
+
+pelanggan.o: pelanggan.cpp
+	$(CPP) -c pelanggan.cpp -o pelanggan.o $(CXXFLAGS)
 
 transaksi.o: transaksi.cpp
 	$(CPP) -c transaksi.cpp -o transaksi.o $(CXXFLAGS)

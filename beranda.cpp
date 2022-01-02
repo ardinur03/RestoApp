@@ -26,9 +26,9 @@ void welcome(){
     }else if (pilih == 't' || pilih == 'T'){
         system("cls");
         printf("\n\t Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam suscipit corrupti sequi incidunt eaque rerum dolore nam laboriosam eos, error placeat. Similique, sequi.\n");
-        
     }else if (pilih == 'e' || pilih == 'E'){
         system("cls");
+        readPelanggan();
     }else{
         system("cls");
         printf("\n\t Inputan yang anda masukkan salah !!! ");
