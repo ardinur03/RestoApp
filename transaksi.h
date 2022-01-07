@@ -5,7 +5,6 @@
 void transaksi();
 void buat_file_transaksi();
 void input_transaksi();
-
 typedef struct
 {
     int id_transaksi;

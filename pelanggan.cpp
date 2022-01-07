@@ -19,7 +19,7 @@ void getNama() {
 
     // cek inputan id tidak melebihi 2 digit
     if (dt_pelanggan.id_pelanggan > 99) {
-        printf("VALIDATE WARNING : ID tidak boleh lebih dari 1 digit !\n");
+        printf("VALIDATE WARNING : ID tidak boleh lebih dari 2 digit !\n");
         // input ulang id pelanggan
         printf("\n klik enter untuk kembali ...");
         getch();

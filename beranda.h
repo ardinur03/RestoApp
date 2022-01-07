@@ -3,4 +3,5 @@
 
 void beranda();
 void welcome();
+void beranda_admin();
 #endif

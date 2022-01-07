@@ -31,8 +31,8 @@ int app(){
 			{
 				system("cls");
 				// pilih daftar transaksi
-				// transaksi();
-				input_transaksi();
+				transaksi();
+				// input_transaksi();
 				break;
 			}
 			case 3:
