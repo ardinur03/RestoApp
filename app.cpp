@@ -30,12 +30,17 @@ int app(){
 			case 2:
 			{
 				system("cls");
+				// pilih daftar transaksi
 				transaksi();
+				// input_transaksi();
 				break;
 			}
 			case 3:
 			{
-				break;
+				// exit program
+				system("cls");
+				exit(0);
+				return (0);
 			}
 			default:
 			{
