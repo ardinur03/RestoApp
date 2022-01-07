@@ -3,9 +3,11 @@
 #include "pelanggan.h"
 #include "beranda.h"
 
+
 FILE *f_pelanggan;
 pelanggan dt_pelanggan;
 int i = 1;
+char Nama_sekarang[50];
 int val_cek_id;
 
 int cekIdPelanggan(pelanggan dt_pelanggan, int id);
@@ -39,6 +41,7 @@ void getNama() {
     printf("\n\tMasukkan nama anda : ");
     fflush(stdin);
     gets(dt_pelanggan.nama);
+
 
     // save to file pelanggan.txt
     f_pelanggan = fopen("pelanggan.dat", "ab+");
