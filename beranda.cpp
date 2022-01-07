@@ -3,6 +3,7 @@
 #include "app.h"
 #include "transaksi.h"
 #include <conio.h>
+#include "admin_resto.h"
 
 void tentang();
 
@@ -34,7 +35,11 @@ void welcome(){
         // exit aplikasi
         system("cls");
         exit(0);
-    }else{
+    }else if(pilih == 'a' || pilih == 'A'){
+        system("cls");
+        admin_resto();
+    }
+    else{
         system("cls");
         printf("\n\t Inputan yang anda masukkan salah !!! ");
         welcome(); // function rekursif
@@ -78,10 +83,10 @@ void beranda_admin(){
     system("cls");
     printf("\t\t|====================== RESTO APP ADMIN ======================|\n");
     printf("\t\t|                                                             |\n");
-    printf("\t\t| 1. CRUD Pemesanan                                           |\n");
-    printf("\t\t| 2. Lihat Transaksi                                          |\n");
-    printf("\t\t| 3. Lihat Pelanggan                                          |\n");
-    printf("\t\t| 4. Lihat Transaksi Pelanggan                                |\n");
+    printf("\t\t| 1. CRUD Makanan                                             |\n");
+    printf("\t\t| 2. CRUD Minuman                                             |\n");
+    printf("\t\t| 3. Lihat Transaksi                                          |\n");
+    printf("\t\t| 4. Lihat Pelanggan                                          |\n");
     printf("\t\t|                                                             |\n");
     printf("\t\t|=============================================================|\n");
 }

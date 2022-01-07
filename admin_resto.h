@@ -1,6 +1,8 @@
 #ifndef admin_resto_h
 #define admin_resto_h
 
+void admin_resto();
+
 // data makanan
 typedef struct {
     int id_makanan; 

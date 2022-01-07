@@ -2,11 +2,29 @@
 #include "conio.h"
 #include "beranda.h"
 
-
-int admin_resto(){
+void admin_resto(){
+    int pilih;
+    // tampilan awal menu admin
     beranda_admin();
 
-    return 0;
+    printf("\n\t Masukkan pilihan anda : ");
+    scanf("%s", &pilih);
+
+    switch (pilih)
+    {
+    case 1: // CRUD Makanan
+    {
+        break;
+
+    }
+    case 2: // CRUD MINUMAN
+    {
+        break;
+    }
+    default:
+        break;
+    }
+
 }
 
 // makanan
