@@ -82,6 +82,8 @@ int cekIdPelanggan(pelanggan dt_pelanggan, int id) {
         if(id == dt_pelanggan.id_pelanggan) {
             fclose(f_pelanggan);
             return 1;
+        } else {
+            return 0;
         }
     }
 }
