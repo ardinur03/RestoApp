@@ -8,7 +8,7 @@ void ubah_makanan();
 void hapus_makanan();
 void lihat_daftar_makanan();
 void detail_makanan();
-void create_array_pointers_to_files();
+// void create_array_pointers_to_files();
 
 // data makanan
 typedef struct {
