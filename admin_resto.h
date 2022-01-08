@@ -3,13 +3,6 @@
 
 void admin_resto();
 
-// data makanan
-typedef struct {
-    int id_makanan; 
-    char nama_makanan[50]; 
-    long int harga;
-} makananData;  
-
 // data minuman
 typedef struct {
     int id_minuman; 
