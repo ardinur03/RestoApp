@@ -87,6 +87,8 @@ void beranda_admin(){
     printf("\t\t| 2. CRUD Minuman                                             |\n");
     printf("\t\t| 3. Lihat Transaksi                                          |\n");
     printf("\t\t| 4. Lihat Pelanggan                                          |\n");
+    printf("\t\t| 5. Lihat Transaksi Pelanggan                                |\n");
+    printf("\t\t| 6. Tutup Aplikasi                                           |\n");
     printf("\t\t|                                                             |\n");
     printf("\t\t|=============================================================|\n");
 }

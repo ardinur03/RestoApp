@@ -1,17 +1,20 @@
 #include <iostream>
 #include <conio.h>
-#include "prototype.h"
 #include <string>
-#include "transaksi.h"
 #include <cstdlib>
 #include <ctime>
 #include <cstring>
+#include "prototype.h"
+#include "transaksi.h"
+#include "admin_resto.h"
+#include "makanan.h"
 
 using namespace std;
 
 void topping_nasi_goreng();
 void topping_ayamgeprek();
 void topping_ikan();
+void kembali_crud_makanan();
 // void catat_transaksi(string nama_pr, string makanan_pr, string minuman_pr, int harga_normal_pr, int diskon_pr, int harga_total_pr);
 // void catat_makanan(string nama_makanan, int harga);
 
@@ -465,12 +468,17 @@ void tambah_makanan()
     makananData dt_makanan;
     FILE *f_makanan;
 
-    // generate random number
-    srand((unsigned)time(0));
-    int id_random;
-    id_random = (rand() % 6) + 1;
+    lihat_daftar_makanan();
+    printf("\n");
+    printf("\n");
 
-    dt_makanan.id_makanan = id_random;
+    // generate random number 3 digit
+    srand((unsigned)time(0));
+    int id_random3;
+    id_random3 = (rand() % 999) + 1;
+    dt_makanan.id_makanan = id_random3;
+
+    printf("\t TAMBAH MAKANAN \n");
     printf("\n\tMasukkan Nama Makanan : ");
     fflush(stdin);
     gets(dt_makanan.nama_makanan);
@@ -486,6 +494,10 @@ void tambah_makanan()
     }
     fwrite(&dt_makanan, sizeof(dt_makanan), 1, f_makanan);
     fclose(f_makanan);
+
+    system("cls");
+    printf("\n\tData Makanan Berhasil Ditambahkan !");
+    kembali_crud_makanan();
 }
 
 // ubah makanan
@@ -497,6 +509,11 @@ void ubah_makanan(){
     int harga_makanan;
     int pilih;
 
+    lihat_daftar_makanan();
+    printf("\n");
+    printf("\n");
+
+    printf("\n\t EDIT MAKANAN\n");
     printf("\n\tMasukkan ID Makanan : ");
     scanf("%d", &id_makanan);
     printf("\n\tMasukkan Nama Makanan : ");
@@ -525,6 +542,8 @@ void ubah_makanan(){
         }
     }
     fclose(f_makanan);
+    printf("Data berhasil diubah");
+    kembali_crud_makanan();
 }
 
 // hapus data 1 makanan
@@ -534,26 +553,66 @@ void hapus_makanan(){
     int id_makanan;
     int pilih;
 
-    printf("\n\tMasukkan ID Makanan : ");
+    /*printf("\n\tMasukkan ID Makanan : ");
     scanf("%d", &id_makanan);
 
     f_makanan = fopen("data_makanan.dat", "rb+");
-    if (!f_makanan)
-    {
-        printf("\n\t Gagal membuat file makanan.dat");
-        exit(1);
-    }
+    // cek id ada atau tidak
     while (fread(&dt_makanan, sizeof(dt_makanan), 1, f_makanan))
     {
         if (dt_makanan.id_makanan == id_makanan)
         {
-            fseek(f_makanan, -sizeof(dt_makanan), SEEK_CUR);
-            fwrite(&dt_makanan, sizeof(dt_makanan), 1, f_makanan);
-            printf("\n\tData berhasil dihapus");
-            break;
+            printf("\n\tApakah anda yakin ingin menghapus data ini ?\n");
+            printf("\n\t1. Ya");
+            printf("\n\t2. Tidak");
+            printf("\n\tMasukkan Pilihan : ");
+            scanf("%d", &pilih);
+            if (pilih == 1)
+            {
+                fseek(f_makanan, -sizeof(dt_makanan), SEEK_CUR);
+                fwrite(&dt_makanan, sizeof(dt_makanan), 1, f_makanan);
+                printf("\n\tData berhasil dihapus");
+                break;
+            }
+            else if (pilih == 2)
+            {
+                printf("\n\tData tidak dihapus");
+                break;
+            }
+            else
+            {
+                printf("\n\tInputan anda salah !");
+            }
         }
     }
-    fclose(f_makanan);
+    */
+    
+    
+    // konfirmasi penghapusan data
+    printf("\n\tApakah anda yakin ingin menghapus semua data ?\n");
+    printf("\n\t1. Ya");
+    printf("\n\t2. Tidak");
+    printf("\n\tMasukkan Pilihan : ");
+    scanf("%d", &pilih);
+    if (pilih == 1)
+    {
+        // delete all data in file data_makanan.dat
+        f_makanan = fopen("data_makanan.dat", "wb+");
+        fclose(f_makanan);
+        printf("\n\tData berhasil dihapus");
+    }
+    else if (pilih == 2)
+    {
+        printf("\n\tData tidak dihapus");
+    }
+    else
+    {
+        printf("\n\tInputan anda salah !");
+    }
+   
+
+    printf("\n\tData berhasil dihapus !");
+    kembali_crud_makanan();
 }
 
 // lihat daftar makanan
@@ -567,10 +626,26 @@ void lihat_daftar_makanan(){
         printf("\n\t Gagal membuat file makanan.dat");
         exit(1);
     }
-    printf("\n\tID Makanan\tNama Makanan\tHarga Makanan\n");
-    while (fread(&dt_makanan, sizeof(dt_makanan), 1, f_makanan))
-    {
-        printf("\n\t%d\t\t%s\t\t%d\n", dt_makanan.id_makanan, dt_makanan.nama_makanan, dt_makanan.harga_makanan);
+    printf("|===============================================================|");
+    printf("\n|\t\t\tDAFTAR MAKANAN\t\t\t\t|");
+    printf("\n|===============================================================|");
+    printf("\n\tID Makanan\tNama Makanan\t\tHarga Makanan\n");
+    
+    // cek isi file makanan.dat jika kosong
+    if(f_makanan == NULL){
+        printf("\n\t\t\t Makanan Kosong");
     }
+    while (fread(&dt_makanan, sizeof(dt_makanan), JUM_BLOK, f_makanan))
+    {
+        printf("\n\t%d\t\t%s\t\t Rp. %d\n", dt_makanan.id_makanan, dt_makanan.nama_makanan, dt_makanan.harga_makanan);
+    }
+
     fclose(f_makanan);
+}
+
+void kembali_crud_makanan(){
+    system("cls");
+    printf("\n\tTekan enter untuk kembali . . .");
+    getche();
+    crud_makanan();
 }
