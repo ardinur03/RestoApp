@@ -6,10 +6,10 @@
 #include "string.h"
 
 
-
+void tambah_minuman();
 void crud_minuman();
 void menu_crud_minuman();
-
+void ubah_minuman();
 
 void admin_resto(){
     int pilih;
@@ -67,6 +67,7 @@ void menu_crud_minuman(){
     case 1: // Tambah Minuman
     {
         // panggil prosedur tambah minuman
+        tambah_minuman;
         break;
     }
     case 2: // Hapus Minuman
@@ -83,3 +84,4 @@ void menu_crud_minuman(){
         break;
     }
 }
+
