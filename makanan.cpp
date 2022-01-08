@@ -11,457 +11,54 @@
 
 using namespace std;
 
-void topping_nasi_goreng();
-void topping_ayamgeprek();
-void topping_ikan();
 void kembali_crud_makanan();
-// void catat_transaksi(string nama_pr, string makanan_pr, string minuman_pr, int harga_normal_pr, int diskon_pr, int harga_total_pr);
-// void catat_makanan(string nama_makanan, int harga);
+void daftar_menu_makanan();
 
 string nama_makanan;
 long int harga_makanan;
 
+// makanan menu di role pelanggan
 void makananMenu()
 {
+   // tampilan daftar makanan
+    daftar_menu_makanan();   
+}
+
+// daftar menu yang di ambil dari data_makanan.dat
+void daftar_menu_makanan(){
+    system("cls");
     // local Variabel
-    int pil;
+    int pil, i =1;
+    makananData dt_makanan;
+    FILE *f_makanan;
 
-    printf("\t\t|====================== Daftar Makanan ==============|\n");
-    printf("\t\t|                                                    |\n");
-    printf("\t\t| Nama Makanan                        Harga          |\n");
-    printf("\t\t| 1. Nasi Goreng                      Rp. 25000      |\n");
-    printf("\t\t| 2. Ayam Geprek                      Rp. 15000      |\n");
-    printf("\t\t| 3. Ikan Bakar                       Rp. 50000      |\n");
-    printf("\t\t| 4. Kembali ke Daftar Menu Pembelian                |\n");
-    printf("\t\t|                                                    |\n");
-    printf("\t\t|====================================================|\n");
-
-    printf("\n\t Makanan apa yang ingin anda beli ?  ");
-    scanf("%d", &pil);
-    switch (pil)
+    f_makanan = fopen("data_makanan.dat", "rt");
+    if (f_makanan == NULL)
     {
-    case 1: // Nasi Goreng
-    {
-        system("cls");
-        printf("Anda memilih : \n");
-        printf("\tMakanan : Nasi Goreng\n");
-        printf("\tHarga   : Rp. 25000\n");
-        topping_nasi_goreng();
-        break;
-    }
-    case 2: // Ayam Geprek
-    {
-        system("cls");
-        printf("Ayam Geprek\n");
-        printf("\t Makanan : Ayam Geprek \n");
-        printf("\t Harga   : Rp. 15000 \n");
-
-        topping_ayamgeprek();
-        break;
-    }
-    case 3: // Ikan Bakar
-    {
-        system("cls");
-        printf("Ikan Bakar\n");
-        printf("\t Makanan : Ikan Bakar \n");
-        printf("\t Harga   : Rp. 50000 \n");
-
-        topping_ikan();
-        break;
-    }
-    case 4: // Kembali ke Daftar Menu Pembelian
-    {
-        system("cls");
-        daftar_menu();
-        break;
-    }
-    default: // default
-    {
-        system("cls");
-        app();
-        break;
-    }
-    }
-}
-
-void topping_nasi_goreng()
-{
-
-    int pilTop;             // Variabel Lokal ( Untuk case memilih topping)
-    int akhir, harga_minum; // Varibel Lokal ( untuk case pesanan tidak tercatat kembali ke menu)
-    char pilih;             // Variabel Lokal
-    string nama_minum;      // Variabel Lokal
-
-    printf("\n\tApakah ingin menggunakan Topping ? (y/t) ");
-    scanf("%s", &pilih);
-
-    if (pilih == 'y' || pilih == 'Y')
-    {
-        system("cls");
-        printf("\t\t|====================== Daftar Topping ==============|\n");
-        printf("\t\t|                                                    |\n");
-        printf("\t\t| Nama Topping                        Harga          |\n");
-        printf("\t\t| 1. Pedas                            Rp. 1000       |\n");
-        printf("\t\t| 2. Tambah 1/2 porsi                 Rp. 11000      |\n");
-        printf("\t\t| 3. Kembali ke Daftar Menu Pembelian                |\n");
-        printf("\t\t|                                                    |\n");
-        printf("\t\t|====================================================|\n");
-
-        printf("\n\t Topping apa yang ingin anda tambahkan ?  ");
-        scanf("%d", &pilTop);
-        switch (pilTop)
-        {
-        case 1: // pedas
-        {
-
-            nama_makanan = "Nasi Goreng Pedas";
-            harga_makanan = 25000 + 1000;
-
-            // printf("%s\n", namaMakanan.c_str());
-            system("cls");
-            // catat_makanan(nama_makanan, harga_makanan);
-            printf("\n\t Pesanan Anda Tercatat ");
-            printf("\n\t Tekan enter untuk melanjutkan . . .");
-            getche();
-            system("cls");
-            printf("Anda memilih : \n");
-            printf("\tMakanan : Nasi Goreng Pedas\n");
-            printf("\tHarga   : Rp. 26000");
-            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
-            getche();
-            daftar_menu();
-
-            break;
-        }
-        case 2:
-        {
-            nama_makanan = "Nasi Goreng Tambah 1/2 Porsi";
-            harga_makanan = 25000 + 11000;
-
-            system("cls");
-            printf("\n\t Pesanan Anda Tercatat ");
-            printf("\n\t Tekan enter untuk melanjutkan . . .");
-            getche();
-            system("cls");
-            printf("Anda memilih : \n");
-            printf("\tMakanan : Nasi Goreng + 1/2 porsi\n");
-            printf("\tHarga   : Rp. 36000");
-            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
-            getche();
-            daftar_menu();
-
-            break;
-        }
-        default:
-        {
-            system("cls");
-            break;
-        }
-        }
+        printf("File tidak dapat dibuka");
+        exit(0);
     }
     else
     {
-
-        nama_makanan = "Nasi Goreng";
-        harga_makanan = 25000;
-
-        printf("\tApakah anda ingin sudahi pesanan? (y/t) ");
-        scanf("%s", &pilih);
-        if (pilih == 'y' || pilih == 'Y')
+        // munculkan data makanan
+        printf("| No | \tNama Makanan | \t Harga |\n");
+        while (fread(&dt_makanan, sizeof(makananData), 1, f_makanan))
         {
-
-            system("cls");
-            printf("\tPesanan anda sudah tercatat !");
-            printf("\n\tTekan enter untuk melanjutkan . . .");
-
-            getche();
-
-            system("cls");
-            printf("\tBerikut Pesanan Anda :");
-            printf("\n\n\t Makanan : Nasi Goreng");
-            printf("\n\t Harga   : RP. 25000");
-            printf("\n\n\t Apakah anda ingin memesan Minuman? (y/t)");
-            scanf("%s", &pilih);
-            if (pilih == 'y' || pilih == 'Y')
-            {
-                system("cls");
-                minumanMenu();
-            }
-            else if (pilih == 't' || pilih == 'T')
-            {
-                system("cls");
-                daftar_menu();
-            }
-            else
-            {
-                system("cls");
-                printf("Inputan anda salah !");
-                getche();
-            }
-            getche();
-            beranda();
+            printf("\n \t %d \t %s. %d \n", i++, dt_makanan.nama_makanan, dt_makanan.harga_makanan);
         }
-        else if (pilih == 't' || pilih == 'T')
-        {
-            printf("\n\t Pesanan anda sudah tercatat !\n");
-            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
-            getche();
-            daftar_menu();
-        }
-        else
-        {
-            system("cls");
-            printf("Inputan anda salah !");
-            getche();
-        }
+
+        // pilih nomor id berdasarkan nomor index
+        printf("\n\nPilih nomor makanan yang ingin dipesan: ");
+
+        scanf("%d", &pil);
     }
-}
-void topping_ayamgeprek()
-{
 
-    int akhir;
-    int pilTop;
-    char pilih; // var lokal
+    fclose(f_makanan); 
 
-    printf("\n\tApakah ingin Menggunakan Topping ? (y/t) ");
-    scanf(" %s", &pilih);
-
-    if (pilih == 'y' || pilih == 'Y')
-    {
-        system("cls");
-        printf("\t\t|====================== Daftar Topping ==============|\n");
-        printf("\t\t|                                                    |\n");
-        printf("\t\t| Nama Topping                        Harga          |\n");
-        printf("\t\t| 1. Nasi                            Rp. 5000        |\n");
-        printf("\t\t| 2. Kentang                         Rp. 5000        |\n");
-        printf("\t\t| 3. Kembali ke Daftar Menu Pembelian                |\n");
-        printf("\t\t|                                                    |\n");
-        printf("\t\t|====================================================|\n");
-
-        printf("\n\t Topping apa yang ingin anda pilih ?  ");
-        scanf("%d", &pilTop);
-        switch (pilTop)
-        {
-        case 1: // nasi
-        {
-            nama_makanan = "Ayam Geprek Nasi";
-            harga_makanan = 15000 + 5000;
-
-            system("cls");
-            printf("\n\t Pesanan Anda Tercatat ");
-            printf("\n\t Tekan enter untuk melanjutkan . . .");
-
-            getche();
-
-            system("cls");
-            printf("Anda memilih : \n");
-            printf("\tMakanan      : Ayam Geprek         Rp. 15000\n");
-            printf("\tTopping      : Nasi                Rp. 5000\n");
-            printf("\tHarga Total  : Rp. 20000 ");
-            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
-            getche();
-            daftar_menu();
-            break;
-        }
-        case 2:
-        {
-            nama_makanan = "Ayam Geprek Kentang";
-            harga_makanan = 15000 + 5000;
-
-            system("cls");
-            printf("\n\t Pesanan Anda Tercatat ");
-            printf("\n\t Tekan enter untuk melanjutkan . . .");
-            getche();
-            system("cls");
-            printf("Anda memilih : \n");
-            printf("\tMakanan      : Ayam Geprek         Rp. 15000\n");
-            printf("\tTopping      : Kentang             Rp. 5000\n");
-            printf("\tHarga Total  : Rp. 20000");
-            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
-            getche();
-            daftar_menu();
-            break;
-        }
-        default:
-        {
-            system("cls");
-            topping_ayamgeprek();
-            break;
-        }
-        }
-    }
-    else
-    {
-        nama_makanan = "Ayam Geprek";
-        harga_makanan = 15000;
-
-        printf("\tApakah anda ingin sudahi pesanan? (y/t) ");
-        scanf("%s", &pilih);
-        if (pilih == 'y' || pilih == 'Y')
-        {
-            system("cls");
-            printf("\n\tPesanan anda sudah tercatat !");
-            printf("\n\tTekan enter untuk melanjutkan . . .");
-            getche();
-            system("cls");
-            printf("\tBerikut Pesanan Anda :\n");
-            printf("\n\t Makanan      : Ayam Geprek");
-            printf("\n\t Harga Total  : RP. 15000");
-            printf("\n\n\tTekan enter untuk Kembali ke beranda . . .");
-            getche();
-            beranda();
-        }
-        else if (pilih == 't' || pilih == 'T')
-        {
-
-            printf("\n\t Pesanan anda sudah tercatat !\n");
-            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
-            getche();
-            daftar_menu();
-        }
-        else
-        {
-            printf("Inputan anda salah !");
-        }
-    }
 }
 
-void topping_ikan()
-{
 
-    int akhir;
-    int pilTop;
-    char pilih; // var lokal
-
-    printf("\n\tApakah ingin memilih ikan (jika anda pilih TIDAK, sistem akan mencatat Ikan Mas Otomatis) ? (y/t) ");
-    scanf(" %s", &pilih);
-
-    if (pilih == 'y' || pilih == 'Y')
-    {
-        system("cls");
-        printf("\t\t|====================== Jenis Ikan ==================|\n");
-        printf("\t\t|                                                    |\n");
-        printf("\t\t| Jenis Ikan                            Harga        |\n");
-        printf("\t\t| 1. Ikan Mas                              -          |\n");
-        printf("\t\t| 2. Ikan Gurame                        Rp. 80000    |\n");
-        printf("\t\t| 3. Kembali ke Daftar Menu Pembelian                |\n");
-        printf("\t\t|                                                    |\n");
-        printf("\t\t|====================================================|\n");
-
-        printf("\n\t Makanan apa yang ingin anda beli ?  ");
-        scanf("%d", &pilTop);
-        switch (pilTop)
-        {
-        case 1:
-        {
-            nama_makanan = "Ikan Bakar Mas";
-            harga_makanan = 50000;
-            system("cls");
-            printf("\n\t Pesanan Anda Tercatat ");
-            printf("\n\t Tekan enter untuk melanjutkan . . .");
-            getche();
-            system("cls");
-            printf("Anda memilih : \n");
-            printf("\tMakanan : Ikan Bakar          Rp. 50000\n");
-            printf("\tJenis   : Ikan Mas                -\n");
-            printf("\tHarga   : Rp. 50000 ");
-            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
-            getche();
-            daftar_menu();
-            break;
-        }
-        case 2: // gurame
-        {
-            nama_makanan = "Ikan Bakar Gurame";
-            harga_makanan = 50000 + 30000;
-
-            system("cls");
-            printf("\n\t Pesanan Anda Tercatat ");
-            printf("\n\t Tekan enter untuk melanjutkan . . .");
-            getche();
-            system("cls");
-            printf("Anda memilih : \n");
-            printf("\tMakanan    : Ikan Bakar       Rp. 50000\n");
-            printf("\tJenis Ikan : Ikan Gurame      Rp. 30000\n");
-            printf("\tHarga      : Rp. 80000");
-            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
-            getche();
-            daftar_menu();
-            break;
-        }
-        default:
-        {
-            system("cls");
-            topping_ikan();
-            break;
-        }
-        }
-    }
-    else
-    {
-        nama_makanan = "Ikan Bakar Mas";
-        harga_makanan = 50000;
-
-        printf("\tApakah anda ingin sudahi pesanan? (y/t) ");
-        scanf("%s", &pilih);
-        if (pilih == 'y' || pilih == 'Y')
-        {
-
-            system("cls");
-            printf("\n\tPesanan anda sudah tercatat !");
-            printf("\n\tTekan enter untuk melanjutkan . . .");
-            getche();
-            system("cls");
-            printf("\tBerikut Pesanan Anda :");
-            printf("\n\n\t Makanan : Ikan Mas");
-            printf("\n\t Harga   : RP. 50000");
-            printf("\n\n\tTekan enter untuk Kembali Ke Beranda . . .");
-            getche();
-            beranda();
-        }
-        else if (pilih == 't' || pilih == 'T')
-        {
-
-            printf("\n\t Pesanan anda sudah tercatat !\n");
-            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
-            getche();
-            daftar_menu();
-        }
-        else
-        {
-            printf("Inputan anda salah !");
-        }
-    }
-}
-
-// // input transaksi makanan
-// void catat_makanan(string nama_makanan, int harga)
-// {
-//     Transaksi dt_transaksi;
-//     FILE *f_transaksi;
-
-//     // generate random number
-//     srand((unsigned)time(0));
-//     int id_random;
-//     id_random = (rand() % 6) + 1;
-
-//     dt_transaksi.id_transaksi = id_random;
-//     dt_transaksi.makanan, nama_makanan;
-//     dt_transaksi.makanan, harga;
-
-//     //  save to file transaksi.dat
-//     f_transaksi = fopen("data_transaksi.dat", "ab+");
-//     if (!f_transaksi)
-//     {
-//         printf("\n\t Gagal membuat file transaksi.dat");
-//         exit(1);
-//     }
-//     fwrite(&dt_transaksi, sizeof(dt_transaksi), 1, f_transaksi);
-//     fclose(f_transaksi);
-// }
-
-
-// CRUD MAKANAN
+// CRUD MAKANAN In ADMIN
 // tambah Makanan
 void tambah_makanan()
 {
@@ -498,6 +95,44 @@ void tambah_makanan()
     system("cls");
     printf("\n\tData Makanan Berhasil Ditambahkan !");
     kembali_crud_makanan();
+    
+}
+
+// create array of pointers to files
+void create_array_pointers_to_files()
+{
+    makananData dt_makanan;
+    FILE **f_makanan;
+    for (int i = 0; i < MAX_MAKANAN; i++)
+    {
+        f_makanan[i] = fopen("data_makanan.dat", "rb+");
+            // input data makanan
+        srand((unsigned)time(0));
+        int id_random3;
+        id_random3 = (rand() % 999) + 1;
+        dt_makanan.id_makanan = id_random3;
+
+        printf("\t TAMBAH MAKANAN \n");
+        printf("\n\tMasukkan Nama Makanan : ");
+        fflush(stdin);
+        gets(dt_makanan.nama_makanan);
+        printf("\n\tMasukkan Harga Makanan : ");
+        scanf("%d", &dt_makanan.harga_makanan);
+
+        //  save to file makanan.dat
+        f_makanan = fopen("data_makanan.dat", "ab+");
+        if (!f_makanan)
+        {
+            printf("\n\t Gagal membuat file makanan.dat");
+            exit(1);
+        }
+        
+        // save array of pointers to files to file makanan.dat
+        fwrite(&dt_makanan, sizeof(dt_makanan), 1, f_makanan[i]);
+    }
+
+    
+
 }
 
 // ubah makanan
@@ -542,52 +177,19 @@ void ubah_makanan(){
         }
     }
     fclose(f_makanan);
+    
+    system("cls");
     printf("Data berhasil diubah");
     kembali_crud_makanan();
 }
 
-// hapus data 1 makanan
+// hapus data makanan
 void hapus_makanan(){
     makananData dt_makanan;
     FILE *f_makanan;
     int id_makanan;
     int pilih;
 
-    /*printf("\n\tMasukkan ID Makanan : ");
-    scanf("%d", &id_makanan);
-
-    f_makanan = fopen("data_makanan.dat", "rb+");
-    // cek id ada atau tidak
-    while (fread(&dt_makanan, sizeof(dt_makanan), 1, f_makanan))
-    {
-        if (dt_makanan.id_makanan == id_makanan)
-        {
-            printf("\n\tApakah anda yakin ingin menghapus data ini ?\n");
-            printf("\n\t1. Ya");
-            printf("\n\t2. Tidak");
-            printf("\n\tMasukkan Pilihan : ");
-            scanf("%d", &pilih);
-            if (pilih == 1)
-            {
-                fseek(f_makanan, -sizeof(dt_makanan), SEEK_CUR);
-                fwrite(&dt_makanan, sizeof(dt_makanan), 1, f_makanan);
-                printf("\n\tData berhasil dihapus");
-                break;
-            }
-            else if (pilih == 2)
-            {
-                printf("\n\tData tidak dihapus");
-                break;
-            }
-            else
-            {
-                printf("\n\tInputan anda salah !");
-            }
-        }
-    }
-    */
-    
-    
     // konfirmasi penghapusan data
     printf("\n\tApakah anda yakin ingin menghapus semua data ?\n");
     printf("\n\t1. Ya");
@@ -610,7 +212,7 @@ void hapus_makanan(){
         printf("\n\tInputan anda salah !");
     }
    
-
+    system("cls");
     printf("\n\tData berhasil dihapus !");
     kembali_crud_makanan();
 }
@@ -633,7 +235,7 @@ void lihat_daftar_makanan(){
     
     // cek isi file makanan.dat jika kosong
     if(f_makanan == NULL){
-        printf("\n\t\t\t Makanan Kosong");
+        printf("\n\t\t\t Data Makanan Kosong");
     }
     while (fread(&dt_makanan, sizeof(dt_makanan), JUM_BLOK, f_makanan))
     {
@@ -643,8 +245,45 @@ void lihat_daftar_makanan(){
     fclose(f_makanan);
 }
 
+// lihat data berdasarkan id
+void detail_makanan(){
+    makananData dt_makanan;
+    FILE *f_makanan;
+    int id_makanan, pilih, cek_makanan;
+
+    printf("\n\t DETAIL MAKANAN\n");
+    printf("\n\tMasukkan ID Makanan  : ");
+    scanf("%d", &id_makanan);
+
+    f_makanan = fopen("data_makanan.dat", "rb");
+    if (!f_makanan)
+    {
+        printf("\n\t Gagal membuat file makanan.dat");
+        exit(1);
+    }
+
+    // validasi cek jika ada makanana dengan id yang dicari
+    cek_makanan = 1;
+    while (fread(&dt_makanan, sizeof(dt_makanan), 1, f_makanan))
+    {
+        if (dt_makanan.id_makanan == id_makanan)
+        {
+            cek_makanan = 0;
+            printf("\n\tID Makanan\tNama Makanan\t\tHarga Makanan\n");
+            printf("\n\t%d\t\t%s\t\t Rp. %d\n", dt_makanan.id_makanan, dt_makanan.nama_makanan, dt_makanan.harga_makanan);
+            break;
+        }
+    }
+    if (cek_makanan == 1)
+    {
+        printf("\n\tData Makanan tidak ditemukan !");
+    }
+
+    kembali_crud_makanan();
+}
+
+// prosedure kembali ke menu
 void kembali_crud_makanan(){
-    system("cls");
     printf("\n\tTekan enter untuk kembali . . .");
     getche();
     crud_makanan();

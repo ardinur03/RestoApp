@@ -80,7 +80,8 @@ void menu_crud_makanan(){
     printf("\t\t| 2. Ubah Makanan                                          |\n");
     printf("\t\t| 3. Hapus Makanan                                         |\n");
     printf("\t\t| 4. Lihat Daftar Makanan                                  |\n");
-    printf("\t\t| 5. Kembali                                               |\n");
+    printf("\t\t| 5. Detail Makanan                                        |\n");
+    printf("\t\t| 6. Kembali                                               |\n");
     printf("\t\t|                                                          |\n");
     printf("\t\t|==========================================================|\n");
 
@@ -92,7 +93,7 @@ void menu_crud_makanan(){
     {
         system("cls");
         // panggil prosedur tambah Makanan
-        tambah_makanan();
+        create_array_pointers_to_files();
         break;
     }
     case 2: // Ubah Makanan
@@ -119,7 +120,14 @@ void menu_crud_makanan(){
         crud_makanan();
         break;
     }
-    case 5: // Kembali
+    case 5: // Detail Makanan
+    {
+        system("cls");
+        // panggil prosedur detail makanan
+        detail_makanan();
+        break;
+    }
+    case 6: // Kembali
     {
         // kembali ke menu utama
         admin_resto();
@@ -130,15 +138,19 @@ void menu_crud_makanan(){
     }
 
 }
+
 // minuman
 void menu_crud_minuman(){
     int pilih;
+    system("cls");
     printf("\n\t\t|====================== CRUD MINUMAN ======================|\n");
     printf("\t\t|                                                          |\n");
     printf("\t\t| 1. Tambah Minuman                                        |\n");
-    printf("\t\t| 2. Hapus Minuman                                         |\n");
-    printf("\t\t| 3. Lihat Daftar Minuman                                  |\n");
-    printf("\t\t| 4. Kembali                                               |\n");
+    printf("\t\t| 2. Ubah Minuman                                          |\n");
+    printf("\t\t| 3. Hapus Minuman                                         |\n");
+    printf("\t\t| 4. Lihat Daftar Minuman                                  |\n");
+    printf("\t\t| 5. Detail Minuman                                        |\n");
+    printf("\t\t| 6. Kembali                                               |\n");
     printf("\t\t|                                                          |\n");
     printf("\t\t|==========================================================|\n");
 
@@ -148,17 +160,46 @@ void menu_crud_minuman(){
     {
     case 1: // Tambah Minuman
     {
+        system("cls");
         // panggil prosedur tambah minuman
+        tambah_minuman();
         break;
     }
     case 2: // Hapus Minuman
     {
+        system("cls");
         // panggil prosedur hapus minuman
+        ubah_minuman();
         break;
     }
-    case 3: // Lihat Daftar Minuman
+    case 3: // hapus daftar minuman
     {
+        system("cls");
         // panggil prosedur lihat daftar minuman
+        hapus_minuman();
+        break;
+    }
+    case 4: // lihat daftar minuman
+    {
+        system("cls");
+        // panggil prosedur lihat daftar minuman
+        lihat_daftar_minuman();
+        printf("\n\tTekan enter untuk kembali . . .");
+        getche();
+        crud_minuman();
+        break;
+    }
+    case 5: // detail minuman
+    {
+        system("cls");
+        // panggil prosedur detail minuman
+        detail_minuman();
+        break;
+    }
+    case 6: // kembali
+    {
+        // kembali ke menu utama
+        admin_resto();
         break;
     }
     default:
