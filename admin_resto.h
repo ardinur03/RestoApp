@@ -2,7 +2,7 @@
 #define admin_resto_h
 
 void admin_resto();
-
+void crud_makanan();
 // data minuman
 typedef struct {
     int id_minuman; 
