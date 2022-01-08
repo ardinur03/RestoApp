@@ -99,41 +99,41 @@ void tambah_makanan()
 }
 
 // create array of pointers to files
-void create_array_pointers_to_files()
-{
-    makananData dt_makanan;
-    FILE **f_makanan;
-    for (int i = 0; i < MAX_MAKANAN; i++)
-    {
-        f_makanan[i] = fopen("data_makanan.dat", "rb+");
-            // input data makanan
-        srand((unsigned)time(0));
-        int id_random3;
-        id_random3 = (rand() % 999) + 1;
-        dt_makanan.id_makanan = id_random3;
+// void create_array_pointers_to_files()
+// {
+//     makananData dt_makanan;
+//     FILE **f_makanan;
+//     for (int i = 0; i < MAX_MAKANAN; i++)
+//     {
+//         f_makanan[i] = fopen("data_makanan.dat", "rb+");
+//             // input data makanan
+//         srand((unsigned)time(0));
+//         int id_random3;
+//         id_random3 = (rand() % 999) + 1;
+//         dt_makanan.id_makanan = id_random3;
 
-        printf("\t TAMBAH MAKANAN \n");
-        printf("\n\tMasukkan Nama Makanan : ");
-        fflush(stdin);
-        gets(dt_makanan.nama_makanan);
-        printf("\n\tMasukkan Harga Makanan : ");
-        scanf("%d", &dt_makanan.harga_makanan);
+//         printf("\t TAMBAH MAKANAN \n");
+//         printf("\n\tMasukkan Nama Makanan : ");
+//         fflush(stdin);
+//         gets(dt_makanan.nama_makanan);
+//         printf("\n\tMasukkan Harga Makanan : ");
+//         scanf("%d", &dt_makanan.harga_makanan);
 
-        //  save to file makanan.dat
-        f_makanan = fopen("data_makanan.dat", "ab+");
-        if (!f_makanan)
-        {
-            printf("\n\t Gagal membuat file makanan.dat");
-            exit(1);
-        }
+//         //  save to file makanan.dat
+//         f_makanan = fopen("data_makanan.dat", "ab+");
+//         if (!f_makanan)
+//         {
+//             printf("\n\t Gagal membuat file makanan.dat");
+//             exit(1);
+//         }
         
-        // save array of pointers to files to file makanan.dat
-        fwrite(&dt_makanan, sizeof(dt_makanan), 1, f_makanan[i]);
-    }
+//         // save array of pointers to files to file makanan.dat
+//         fwrite(&dt_makanan, sizeof(dt_makanan), 1, f_makanan[i]);
+//     }
 
     
 
-}
+// }
 
 // ubah makanan
 void ubah_makanan(){

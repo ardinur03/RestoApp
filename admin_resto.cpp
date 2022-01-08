@@ -93,7 +93,7 @@ void menu_crud_makanan(){
     {
         system("cls");
         // panggil prosedur tambah Makanan
-        create_array_pointers_to_files();
+        tambah_makanan();
         break;
     }
     case 2: // Ubah Makanan
