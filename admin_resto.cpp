@@ -1,13 +1,15 @@
 #include <iostream>
 #include "conio.h"
 #include "beranda.h"
-#include "minuman.h"
-#include "makanan.h"
+#include "admin_resto.h"
+#include <time.h>
+#include "string.h"
 
-void crud_makanan();
+
+
 void crud_minuman();
-void menu_crud_makanan();
 void menu_crud_minuman();
+
 
 void admin_resto(){
     int pilih;
@@ -21,8 +23,8 @@ void admin_resto(){
     {
     case 1: // CRUD Makanan
     {
-        crud_makanan();
         break;
+
     }
     case 2: // CRUD MINUMAN
     {
@@ -36,71 +38,19 @@ void admin_resto(){
 }
 
 // makanan
-void crud_makanan(){
-    menu_crud_makanan();
-}
-
 
 // minuman
 void crud_minuman(){
     menu_crud_minuman();
 }
 
+
 // tampilan
 // makanan
-void menu_crud_makanan(){
-    int pilih;
-    printf("\n\t\t|====================== CRUD MAKANAN ======================|\n");
-    printf("\t\t|                                                          |\n");
-    printf("\t\t| 1. Tambah Makanan                                        |\n");
-    printf("\t\t| 2. Ubah Makanan                                          |\n");
-    printf("\t\t| 3. Hapus Makanan                                         |\n");
-    printf("\t\t| 4. Lihat Daftar Makanan                                  |\n");
-    printf("\t\t| 5. Kembali                                               |\n");
-    printf("\t\t|                                                          |\n");
-    printf("\t\t|==========================================================|\n");
-
-    printf("\n\t Masukkan pilihan anda : ");
-    scanf("%d", &pilih);
-     switch (pilih)
-    {
-    case 1: // Tambah Makanan
-    {
-        // panggil prosedur tambah Makanan
-        tambah_makanan();
-        break;
-    }
-    case 2: // Ubah Makanan
-    {
-        // panggil prosedur ubah Makanan
-        ubah_makanan();
-        break;
-    }
-    case 3: // Hapus Makanan
-    {
-        // panggil prosedur hapus Makanan
-        hapus_makanan();
-        break;
-    }
-    case 4: // Lihat Daftar Minuman
-    {
-        // panggil prosedur lihat daftar minuman
-        lihat_daftar_makanan();
-        break;
-    }
-    case 5: // Kembali
-    {
-        // kembali ke menu utama
-        break;
-    }
-    default:
-        break;
-    }
-
-}
 // minuman
 void menu_crud_minuman(){
     int pilih;
+    system("cls");
     printf("\n\t\t|====================== CRUD MINUMAN ======================|\n");
     printf("\t\t|                                                          |\n");
     printf("\t\t| 1. Tambah Minuman                                        |\n");
@@ -133,4 +83,3 @@ void menu_crud_minuman(){
         break;
     }
 }
-
