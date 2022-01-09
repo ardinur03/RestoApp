@@ -2,14 +2,12 @@
 #include "prototype.h"
 #include <conio.h>
 #include <string>
-#include "minuman.h"
 #include <ctime>
 #include <cstring>
 #include "admin_resto.h"
-
+void detail_minuman_by_index(int index_minuman);
 using namespace std;
 
-void toppingTeh();
 void kembali_crud_minuman();
 void lihat_daftar_minuman();
 string nama_minuman;
@@ -21,226 +19,62 @@ void minumanMenu()
     char airmineral;
     int pil;
 
-    printf("\t\t|====================== Daftar Minuman ===============|\n");
-    printf("\t\t|                                                     |\n");
-    printf("\t\t| Nama Minuman                         Harga          |\n");
-    printf("\t\t| 1. Teh                               Rp. 3000       |\n");
-    printf("\t\t| 2. Air Mineral                       Rp. 3000       |\n");
-    printf("\t\t| 3. Kembali ke Daftar Menu Pembelian                 |\n");
-    printf("\t\t|                                                     |\n");
-    printf("\t\t|=====================================================|\n");
-
+    lihat_daftar_minuman();
+    
     printf("\n\t Minuman apa yang ingin anda beli ?  ");
     scanf("%d", &pil);
-    switch (pil)
-    {
-    case 1:
-    {
-        system("cls");
-        printf("Anda Memilih :\n");
-        printf("\n\t Minuman : Teh");
-        printf("\n\t Harga   : Rp. 3000 \n");
-
-        toppingTeh();
-        break;
-    }
-    case 2:
-    {
-        nama_minuman = "Air Mineral";
-        harga_minuman = 3000;
-    kembali:
-        system("cls");
-        printf("Anda Memilih :\n");
-        printf("\n\t Minuman : Air Mineral ");
-        printf("\n\t Harga   : Rp. 3000");
-        printf("\n\n\t Apakah ingin sudahi pesanan ? (y/t) ");
-        scanf("%s", &airmineral);
-
-        if (airmineral == 'y' || airmineral == 'Y')
-        {
-            printf("\n\t Pesanan Anda Sudah Tercatat");
-            printf("\n\t Tekan enter untuk melanjutkan . . .");
-            getche();
-            system("cls");
-            printf("Anda Memilih\n");
-            printf("\n\t Minuman      : Air Mineral        Rp. 3000");
-            printf("\n\t Topping      : -                  Rp. 0");
-            printf("\n\t Harga Total  : Rp. 3000");
-            printf("\n\t Silahkan tekan enter untuk kembali ke Beranda ");
-            getche();
-            beranda();
-        }
-        else if (airmineral == 't' || airmineral == 'T')
-        {
-            system("cls");
-            printf("\n\n\tTekan enter untuk Kembali Memesan . . .");
-            getche();
-            daftar_menu();
-        }
-        else
-        {
-            system("cls");
-            printf("Inputan anda salah !");
-            printf("\n\t Tekan Enter Untuk Kembali");
-            getche();
-            goto kembali;
-        }
-    }
-    case 3:
-    {
-        system("cls");
-        daftar_menu();
-        break;
-    }
-    default:
-    {
-        break;
-    }
-    }
-}
-void toppingTeh()
-{
-    int DP;
-    char pilih;
-
-    printf("\n\t Pilih Topping Teh ? (y/t) ");
-    scanf("%s", &pilih);
-
-    if (pilih == 'y' || pilih == 'Y')
-    {
-        printf("\t\t|==================== Topping Teh ===================|\n");
-        printf("\t\t|                                                    |\n");
-        printf("\t\t| Nama Topping                        Harga          |\n");
-        printf("\t\t| 1. Manis Panas                     Rp. 2000        |\n");
-        printf("\t\t| 2. Dingin                          Rp. 1000        |\n");
-        printf("\t\t| 3. Kembali ke Daftar Menu Pembelian                |\n");
-        printf("\t\t|                                                    |\n");
-        printf("\t\t|====================================================|\n");
-
-        printf("\n\t Toping apa yang ingin anda pilih ?  ");
-        scanf("%d", &DP);
-        switch (DP)
-        {
-        case 1:
-        {
-            nama_minuman = "Teh Manis Panas";
-            harga_minuman = 3000 + 2000;
-            system("cls");
-            printf("\n\t Pesanan Anda Tercatat ");
-            printf("\n\t Tekan enter untuk melanjutkan . . .");
-            getche();
-            system("cls");
-            printf("Anda Memilih\n");
-            printf("\n\t Minuman      : Teh              Rp. 3000");
-            printf("\n\t Topping      : Manis Panas      Rp. 2000");
-            printf("\n\t Harga Total  : Rp. 5000 \n");
-            printf("\n\t Silahkan tekan enter untuk kembali ke Menu makanan ");
-            getche();
-
-            // save ke transaksi
-            // transaksi(nama, nama_makanan, minuman);
-            daftar_menu();
-            break;
-        }
-        case 2:
-        {
-            nama_minuman = "Teh Dingin";
-            harga_minuman = 3000 + 1000;
-            system("cls");
-            printf("\n\t Pesanan Anda Tercatat ");
-            printf("Tekan enter untuk melanjutkan . . .");
-            getche();
-            system("cls");
-            printf("Anda Memilih\n");
-            printf("\n\t Minuman      : Teh          Rp. 3000");
-            printf("\n\t Topping      : Dingin       Rp. 1000");
-            printf("\n\t Harga Total  : Rp. 4000");
-            printf("\n\t Silahkan tekan enter untuk kembali ke Menu makanan ");
-            getche();
-            daftar_menu();
-            break;
-        }
-        case 3:
-        {
-            system("cls");
-            daftar_menu();
-            break;
-        }
-        default:
-        {
-            break;
-        }
-        }
-    }
-    else if (pilih == 't' || pilih == 'T')
-    {
-        nama_minuman = "Teh Tawar";
-        harga_minuman = 3000;
-    kembali:
-        printf("Apakah anda ingin sudahi pesanan? (y/t) ");
-        scanf("%s", &pilih);
-        if (pilih == 'y' || pilih == 'Y')
-        {
-            system("cls");
-            printf("Pesanan anda sudah tercatat !");
-            printf("\n\t Minuman : Teh Tawar");
-            printf("\n\t Harga   : RP. 3000");
-            printf("\n\t Silahkan tekan enter untuk kembali ke Beranda ");
-            getche();
-            beranda();
-        }
-        else if (pilih == 't' || pilih == 'T')
-        {
-            system("cls");
-            printf("Pesanan anda sudah tercatat !");
-            printf("\n\t Tekan Enter Untuk Kembali");
-            getche();
-            daftar_menu();
-        }
-        else
-        {
-            system("cls");
-            printf("Inputan anda salah !");
-            printf("\n\t Tekan Enter Untuk Kembali");
-            getche();
-            goto kembali;
-        }
-    }
+    detail_minuman_by_index(pil);
 }
 
 // tambah minuman
 void tambah_minuman()
 {
-    minumanData dt_minuman;
+    minumanData dt_minuman[100];
     FILE *f_minuman;
+    int i = 0;
+    f_minuman = fopen("data_minuman.dat", "a+b");
 
     lihat_daftar_minuman();
     printf("\n");
     printf("\n");
 
-    // Number Acak
-    srand((unsigned)time(0));
-    int id_random;
-    id_random = (rand() % 999) + 1;
-
-    dt_minuman.id_minuman = id_random;
-    printf("\n \tMasukan nama Minuman : ");
-    fflush(stdin);
-    gets(dt_minuman.nama_minuman);
-
-    printf("\n\tMasukan Harga Minuman : ");
-    scanf("%d", &dt_minuman.harga_minuman);
-
-    // Mneyimpan data minuman kedalam FILE
-    f_minuman = fopen("data_minuman.dat", "ab+");
-
-    if (!f_minuman)
+    // cek apakah file bisa di buka
+    if (f_minuman == NULL)
     {
-        printf("\n\t Gagal Membuat file minuman.dat");
-        exit(1);
+        printf("\n\t File tidak bisa dibuka");
+        getch();
+        kembali_crud_minuman();
+    }else {
+        // cek isi file data_minuman.dat apakah ada ada jika ada data maka lanjutkan index elementnya
+        if (fread(&dt_minuman, sizeof(makananData), 1, f_minuman) == 1)
+        {
+            while (fread(&dt_minuman, sizeof(makananData), 1, f_minuman))
+            {
+                i++;
+            }
+        }
+
+        // input data minuman baru berdassarkan nomor index variabel arraynya
+        printf("\t TAMBAH MINUMAN \n");
+        printf("\n\t Masukkan nama minuman : ");
+        fflush(stdin);
+        gets(dt_minuman[i].nama_minuman);
+        printf("\n\t Masukkan harga minuman : ");
+        fflush(stdin);
+        scanf("%d", &dt_minuman[i].harga_minuman);
+
+        // Number Acak
+        srand((unsigned)time(0));
+        int id_random;
+        id_random = (rand() % 999) + 1;
+        dt_minuman[i].id_minuman = id_random;
+
+        fwrite(&dt_minuman[i], sizeof(makananData), 1, f_minuman);
+        fclose(f_minuman);
+
+        // refresh variabel array
+        i = 0;
     }
-    fwrite(&dt_minuman, sizeof(dt_minuman), 1, f_minuman);
-    fclose(f_minuman);
 
     system("cls");
     printf("\n\t Data Minuman Berhasil Ditambahkan");
@@ -331,8 +165,9 @@ void ubah_minuman(){
 
 // lihat daftar minuman
 void lihat_daftar_minuman(){
-    minumanData dt_minuman;
+    minumanData dt_minuman[100];
     FILE *f_minuman;
+    int i = 0, index = 1;
 
     f_minuman = fopen("data_minuman.dat", "rb");
    
@@ -342,13 +177,16 @@ void lihat_daftar_minuman(){
         exit(1);
     }
 
-    if (!feof(f_minuman)){
-        printf("\n\tID Minuman\tNama Minuman\tHarga Minuman\n");
-        
-        while (fread(&dt_minuman, sizeof(dt_minuman), 1, f_minuman))
-        {
-            printf("\n\t%d\t\t%s\t\t%d\n", dt_minuman.id_minuman, dt_minuman.nama_minuman, dt_minuman.harga_minuman);
-        }
+    // print data berdasarkan no index
+    printf("|=======================================================================|");
+    printf("\n|\t\t\t        DAFTAR MINUMAN\t\t\t\t|");
+    printf("\n|=======================================================================|");
+    printf("\n\tNO\tID Minuman\tNama Minuman\t\tHarga Minuman\n");
+    while (fread(&dt_minuman[i], sizeof(makananData), 1, f_minuman))
+    {
+        printf("\n\t%d\t%d \t\t %s\t\t Rp. %d\n", index, dt_minuman[i].id_minuman, dt_minuman[i].nama_minuman, dt_minuman[i].harga_minuman);
+        index++;
+        i++;
     }
 
     fclose(f_minuman);
@@ -388,6 +226,31 @@ void detail_minuman(){
     {
         printf("\n\tData Minuman tidak ditemukan !");
     }
+    kembali_crud_minuman();
+}
+
+void detail_minuman_by_index(int index_minuman){
+    index_minuman -= 1;
+    minumanData dt_minuman[100];
+    FILE *f_minuman;
+    int id_minuman, pilih, i = 0;
+
+    f_minuman = fopen("data_minuman.dat", "rb");
+    if (!f_minuman)
+    {
+        printf("\n\t Gagal membuat file minuman.dat");
+        exit(1);
+    }
+
+    // file data_makanan.dat to array
+    while (fread(&dt_minuman[i], sizeof(dt_minuman[i]), 1, f_minuman))
+    {
+        i++;
+    }
+
+    printf("%s", dt_minuman[index_minuman].nama_minuman);
+    printf("%d", dt_minuman[index_minuman].harga_minuman);
+
 }
 
 void kembali_crud_minuman(){
