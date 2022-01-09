@@ -7,13 +7,12 @@
 #include "prototype.h"
 #include "transaksi.h"
 #include "admin_resto.h"
-#include "makanan.h"
 
 using namespace std;
 
 void kembali_crud_makanan();
 void daftar_menu_makanan();
-
+int ambil_nilai_berdasarkan_id(int p_id_makanan);
 string nama_makanan;
 long int harga_makanan;
 
@@ -29,32 +28,19 @@ void daftar_menu_makanan(){
     system("cls");
     // local Variabel
     int pil, i =1;
-    makananData dt_makanan;
-    FILE *f_makanan;
+    
+    lihat_daftar_makanan();
 
-    f_makanan = fopen("data_makanan.dat", "rt");
-    if (f_makanan == NULL)
-    {
-        printf("File tidak dapat dibuka");
-        exit(0);
-    }
-    else
-    {
-        // munculkan data makanan
-        printf("| No | \tNama Makanan | \t Harga |\n");
-        while (fread(&dt_makanan, sizeof(makananData), 1, f_makanan))
-        {
-            printf("\n \t %d \t %s. %d \n", i++, dt_makanan.nama_makanan, dt_makanan.harga_makanan);
-        }
+    // pilih nomor id berdasarkan nomor index
+    printf("\n\nPilih nomor makanan yang ingin dipesan: ");
 
-        // pilih nomor id berdasarkan nomor index
-        printf("\n\nPilih nomor makanan yang ingin dipesan: ");
+    scanf("%d", &pil);
 
-        scanf("%d", &pil);
-    }
+    detail_makanan_by_index(pil);
 
-    fclose(f_makanan); 
-
+    printf("\n\n ketik enter untuk kembali");
+    getche();
+    daftar_menu_makanan();
 }
 
 
@@ -62,78 +48,61 @@ void daftar_menu_makanan(){
 // tambah Makanan
 void tambah_makanan()
 {
-    makananData dt_makanan;
+    makananData dt_makanan[100];
     FILE *f_makanan;
+    int i = 0;
+    f_makanan = fopen("data_makanan.dat", "a+b");
 
     lihat_daftar_makanan();
     printf("\n");
     printf("\n");
 
-    // generate random number 3 digit
-    srand((unsigned)time(0));
-    int id_random3;
-    id_random3 = (rand() % 999) + 1;
-    dt_makanan.id_makanan = id_random3;
-
-    printf("\t TAMBAH MAKANAN \n");
-    printf("\n\tMasukkan Nama Makanan : ");
-    fflush(stdin);
-    gets(dt_makanan.nama_makanan);
-    printf("\n\tMasukkan Harga Makanan : ");
-    scanf("%d", &dt_makanan.harga_makanan);
-
-    //  save to file makanan.dat
-    f_makanan = fopen("data_makanan.dat", "ab+");
-    if (!f_makanan)
+    // cek apakah file bisa dibuka
+    if (f_makanan == NULL)
     {
-        printf("\n\t Gagal membuat file makanan.dat");
-        exit(1);
+        printf("File tidak dapat dibuka");
+        getch();
+        kembali_crud_makanan();
     }
-    fwrite(&dt_makanan, sizeof(dt_makanan), 1, f_makanan);
-    fclose(f_makanan);
+    else
+    {
+        // cek isi file data_makanan.dat apakah ada ada jika ada data maka lanjutkan index elementnya
+        if (fread(&dt_makanan, sizeof(makananData), 1, f_makanan) == 1)
+        {
+            while (fread(&dt_makanan, sizeof(makananData), 1, f_makanan))
+            {
+                i++;
+            }
+        }
+
+        // input data makanan baru berdassarkan nomor index variabel arraynya
+        printf("\t TAMBAH MAKANAN \n");
+        printf("\t\t Masukkan nama makanan  : ");
+        fflush(stdin);
+        gets(dt_makanan[i].nama_makanan);
+        printf("\t\t Masukkan harga makanan : ");
+        fflush(stdin);
+        scanf("%ld", &dt_makanan[i].harga_makanan); 
+
+        // generate random number 3 digit
+        srand((unsigned)time(0));
+        int id_random3;
+        id_random3 = (rand() % 999) + 1;
+        dt_makanan[i].id_makanan = id_random3;
+
+        // tambahkan data makanan baru ke file data_makanan.dat
+        fwrite(&dt_makanan[i], sizeof(makananData), 1, f_makanan);
+        fclose(f_makanan);
+
+        // refresh variabel array
+        i = 0;
+    }
 
     system("cls");
-    printf("\n\tData Makanan Berhasil Ditambahkan !");
+    printf("Data makanan berhasil di tambahkan !");
     kembali_crud_makanan();
     
 }
-
-// create array of pointers to files
-// void create_array_pointers_to_files()
-// {
-//     makananData dt_makanan;
-//     FILE **f_makanan;
-//     for (int i = 0; i < MAX_MAKANAN; i++)
-//     {
-//         f_makanan[i] = fopen("data_makanan.dat", "rb+");
-//             // input data makanan
-//         srand((unsigned)time(0));
-//         int id_random3;
-//         id_random3 = (rand() % 999) + 1;
-//         dt_makanan.id_makanan = id_random3;
-
-//         printf("\t TAMBAH MAKANAN \n");
-//         printf("\n\tMasukkan Nama Makanan : ");
-//         fflush(stdin);
-//         gets(dt_makanan.nama_makanan);
-//         printf("\n\tMasukkan Harga Makanan : ");
-//         scanf("%d", &dt_makanan.harga_makanan);
-
-//         //  save to file makanan.dat
-//         f_makanan = fopen("data_makanan.dat", "ab+");
-//         if (!f_makanan)
-//         {
-//             printf("\n\t Gagal membuat file makanan.dat");
-//             exit(1);
-//         }
-        
-//         // save array of pointers to files to file makanan.dat
-//         fwrite(&dt_makanan, sizeof(dt_makanan), 1, f_makanan[i]);
-//     }
-
-    
-
-// }
 
 // ubah makanan
 void ubah_makanan(){
@@ -219,27 +188,26 @@ void hapus_makanan(){
 
 // lihat daftar makanan
 void lihat_daftar_makanan(){
-    makananData dt_makanan;
+    makananData dt_makanan[100];
     FILE *f_makanan;
+    int i = 0, index = 1;
 
-    f_makanan = fopen("data_makanan.dat", "rb");
+    f_makanan = fopen("data_makanan.dat", "rb+");
     if (!f_makanan)
     {
         printf("\n\t Gagal membuat file makanan.dat");
         exit(1);
     }
-    printf("|===============================================================|");
-    printf("\n|\t\t\tDAFTAR MAKANAN\t\t\t\t|");
-    printf("\n|===============================================================|");
-    printf("\n\tID Makanan\tNama Makanan\t\tHarga Makanan\n");
-    
-    // cek isi file makanan.dat jika kosong
-    if(f_makanan == NULL){
-        printf("\n\t\t\t Data Makanan Kosong");
-    }
-    while (fread(&dt_makanan, sizeof(dt_makanan), JUM_BLOK, f_makanan))
+
+    // print data berdasarkan no index
+    printf("|=======================================================================|");
+    printf("\n|\t\t\t        DAFTAR MAKANAN\t\t\t\t|");
+    printf("\n|=======================================================================|");
+    printf("\n\tNO\tID Makanan\tNama Makanan\t\tHarga Makanan\n");
+    while (fread(&dt_makanan[i], sizeof(dt_makanan[i]), 1, f_makanan))
     {
-        printf("\n\t%d\t\t%s\t\t Rp. %d\n", dt_makanan.id_makanan, dt_makanan.nama_makanan, dt_makanan.harga_makanan);
+        printf("\n\t%d\t%d \t\t %s\t\t Rp. %d\n", index++, dt_makanan[i].id_makanan, dt_makanan[i].nama_makanan, dt_makanan[i].harga_makanan);
+        i++;
     }
 
     fclose(f_makanan);
@@ -249,37 +217,39 @@ void lihat_daftar_makanan(){
 void detail_makanan(){
     makananData dt_makanan;
     FILE *f_makanan;
-    int id_makanan, pilih, cek_makanan;
+    int id_makanan, pilih;
 
     printf("\n\t DETAIL MAKANAN\n");
     printf("\n\tMasukkan ID Makanan  : ");
     scanf("%d", &id_makanan);
 
-    f_makanan = fopen("data_makanan.dat", "rb");
+    ambil_nilai_berdasarkan_id(id_makanan);
+
+    kembali_crud_makanan();
+}
+
+void detail_makanan_by_index(int index_makanan){
+    index_makanan -= 1;
+    makananData dt_makanan[100];    
+    FILE *f_makanan;
+    int id_makanan, pilih, i =0;
+
+    f_makanan = fopen("data_makanan.dat", "rb+");
+  
     if (!f_makanan)
     {
         printf("\n\t Gagal membuat file makanan.dat");
         exit(1);
     }
 
-    // validasi cek jika ada makanana dengan id yang dicari
-    cek_makanan = 1;
-    while (fread(&dt_makanan, sizeof(dt_makanan), 1, f_makanan))
+    // file data_makanan.dat to array
+    while (fread(&dt_makanan[i], sizeof(dt_makanan[i]), 1, f_makanan))
     {
-        if (dt_makanan.id_makanan == id_makanan)
-        {
-            cek_makanan = 0;
-            printf("\n\tID Makanan\tNama Makanan\t\tHarga Makanan\n");
-            printf("\n\t%d\t\t%s\t\t Rp. %d\n", dt_makanan.id_makanan, dt_makanan.nama_makanan, dt_makanan.harga_makanan);
-            break;
-        }
+        i++;
     }
-    if (cek_makanan == 1)
-    {
-        printf("\n\tData Makanan tidak ditemukan !");
-    }
-
-    kembali_crud_makanan();
+    printf("%s", dt_makanan[index_makanan].nama_makanan);
+    printf("%d", dt_makanan[index_makanan].harga_makanan);
+    
 }
 
 // prosedure kembali ke menu
@@ -287,4 +257,38 @@ void kembali_crud_makanan(){
     printf("\n\tTekan enter untuk kembali . . .");
     getche();
     crud_makanan();
+}
+
+
+// function cari id
+int ambil_nilai_berdasarkan_id(int p_id_makanan){
+    makananData dt_makanan;
+    FILE *f_makanan;
+    int id_makanan, pilih;
+    int cek_makanan;
+    f_makanan = fopen("data_makanan.dat", "rb");
+    if (!f_makanan)
+    {
+        printf("\n\t Gagal membuat file makanan.dat");
+        exit(1);
+    }
+    // validasi cek jika ada makanana dengan id yang dicari
+    cek_makanan = 1;
+    while (fread(&dt_makanan, sizeof(dt_makanan), 1, f_makanan))
+    {
+        if (dt_makanan.id_makanan == p_id_makanan)
+        {
+            cek_makanan = 0;
+            // cetak data dengan id yang dicari yang rapi
+            printf("\n\n\t Data Makanan Berhasil di temukan !");
+            printf("\n\n\tID Makanan\tNama Makanan\t\tHarga Makanan\n");
+            printf("\n\t%d \t\t %s\t\t Rp. %d\n", dt_makanan.id_makanan, dt_makanan.nama_makanan, dt_makanan.harga_makanan);
+        }
+    }
+    if (cek_makanan == 1)
+    {
+        printf("\n\tData Makanan tidak ditemukan !");
+    }
+
+    return 0;
 }

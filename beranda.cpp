@@ -1,5 +1,4 @@
 #include <iostream>
-#include "pelanggan.h"
 #include "app.h"
 #include "transaksi.h"
 #include <conio.h>
@@ -26,7 +25,6 @@ void welcome(){
     if (pilih == 'y' || pilih == 'Y')
     {
         system("cls");
-        getNama();
     	app();
     }else if (pilih == 't' || pilih == 'T'){
         system("cls");
