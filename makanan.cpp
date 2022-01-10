@@ -11,36 +11,21 @@
 using namespace std;
 
 void kembali_crud_makanan();
-void daftar_menu_makanan();
 int ambil_nilai_berdasarkan_id(int p_id_makanan);
 string nama_makanan;
 long int harga_makanan;
 
-// makanan menu di role pelanggan
-void makananMenu()
-{
-   // tampilan daftar makanan
-    daftar_menu_makanan();   
-}
-
 // daftar menu yang di ambil dari data_makanan.dat
-void daftar_menu_makanan(){
+int daftar_menu_makanan(){
     system("cls");
     // local Variabel
     int pil, i =1;
     
     lihat_daftar_makanan();
-
     // pilih nomor id berdasarkan nomor index
-    printf("\n\nPilih nomor makanan yang ingin dipesan: ");
-
+    printf("\n\nPilih nomor makanan yang ingin dipesan : ");
     scanf("%d", &pil);
-
-    detail_makanan_by_index(pil);
-
-    printf("\n\n ketik enter untuk kembali");
-    getche();
-    daftar_menu_makanan();
+    return pil;
 }
 
 
@@ -226,30 +211,6 @@ void detail_makanan(){
     ambil_nilai_berdasarkan_id(id_makanan);
 
     kembali_crud_makanan();
-}
-
-void detail_makanan_by_index(int index_makanan){
-    index_makanan -= 1;
-    makananData dt_makanan[100];    
-    FILE *f_makanan;
-    int id_makanan, pilih, i =0;
-
-    f_makanan = fopen("data_makanan.dat", "rb+");
-  
-    if (!f_makanan)
-    {
-        printf("\n\t Gagal membuat file makanan.dat");
-        exit(1);
-    }
-
-    // file data_makanan.dat to array
-    while (fread(&dt_makanan[i], sizeof(dt_makanan[i]), 1, f_makanan))
-    {
-        i++;
-    }
-    printf("%s", dt_makanan[index_makanan].nama_makanan);
-    printf("%d", dt_makanan[index_makanan].harga_makanan);
-    
 }
 
 // prosedure kembali ke menu

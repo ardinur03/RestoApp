@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include <conio.h>
-
+#include "admin_resto.h"
+#include "loading.h"
 using namespace std;
 
 string data_login[2][3] = {{"admin", "123", "Admin"}, {"user", "123", "Operator"}};
@@ -12,9 +13,13 @@ void cek_authentication(string us, string pas);
 
 int login()
 {
-    cout << "\nUsername : ";
+    system("cls");
+    cout << "===========================================================" << endl;
+    cout << "=                       >> LOGIN <<                       =" << endl;
+    cout << "===========================================================" << endl;
+    cout << "\n\t\tUsername : ";
     cin >> username;
-    cout << "\nPassword : ";
+    cout << "\n\t\tPassword : ";
     ch = _getch();
     while (ch != 13)
     {
@@ -43,7 +48,9 @@ void cek_authentication(string us, string pas)
 
     if (level == "Admin")
     {
-        cout << "Anda login sebagai Admin";
+        system("cls");
+        getLoadingAdmin();
+        admin_resto();
     }
     else if (level == "Operator")
     {
@@ -51,6 +58,9 @@ void cek_authentication(string us, string pas)
     }
     else
     {
-        cout << "Level tidak ditemukan";
+        cout << "\n Login gagal, username atau password salah";
+        cout << "\n Silahkan coba lagi ...";
+        getche();
+        login();
     }
 }

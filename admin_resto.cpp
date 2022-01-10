@@ -3,7 +3,8 @@
 #include "beranda.h"
 #include "minuman.h"
 #include "makanan.h"
-
+#include "transaksi.h"
+#include "loading.h"
 void crud_makanan();
 void crud_minuman();
 void menu_crud_makanan();
@@ -33,25 +34,31 @@ void admin_resto(){
     }
     case 3: // Lihat Transaksi
     {
+        lihat_daftar_transaksi();
+        printf("\n\t Tekan enter untuk kembali ...");
+        getche();
+        system("cls");    
+        admin_resto();
         break;
     }
     case 4: // Lihat Daftar Pelanggan
     {
+        lihat_daftar_transaksi_pelanggan();
         break;
     }
     case 5: // Lihat Transaksi Pelanggan
     {
+        lihat_transaksi_satu_pelanggan_void();
         break;
     }
     case 6: // Tutup Aplikasi
     {
         // exit aplikasi
         system("cls");
+        salam();
         exit(0);
         break;
     }
-
-
     default:
         break;
     }
@@ -74,17 +81,21 @@ void crud_minuman(){
 // makanan
 void menu_crud_makanan(){
     int pilih;
-    printf("\n\t\t|====================== CRUD MAKANAN ======================|\n");
-    printf("\t\t|                                                          |\n");
-    printf("\t\t| 1. Tambah Makanan                                        |\n");
-    printf("\t\t| 2. Ubah Makanan                                          |\n");
-    printf("\t\t| 3. Hapus Makanan                                         |\n");
-    printf("\t\t| 4. Lihat Daftar Makanan                                  |\n");
-    printf("\t\t| 5. Detail Makanan                                        |\n");
-    printf("\t\t| 6. Kembali                                               |\n");
-    printf("\t\t|                                                          |\n");
-    printf("\t\t|==========================================================|\n");
-
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                       >>CRUD MAKANAN<<                      |\n");
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|  1. Tambah Makanan                                          |\n");
+    printf("\t\t|  2. Ubah Makanan                                            |\n");
+    printf("\t\t|  3. Hapus Makanan                                           |\n");
+    printf("\t\t|  4. Lihat Daftar Makanan                                    |\n");
+    printf("\t\t|  5. Detail Makanan                                          |\n");
+    printf("\t\t|  6. Kembali                                                 |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                  COPYRIGHT 2021 | RestoApp                  |\n");
+    printf("\t\t|=============================================================|\n");
     printf("\n\t Masukkan pilihan anda : ");
     scanf("%d", &pilih);
      switch (pilih)
@@ -143,17 +154,21 @@ void menu_crud_makanan(){
 void menu_crud_minuman(){
     int pilih;
     system("cls");
-    printf("\n\t\t|====================== CRUD MINUMAN ======================|\n");
-    printf("\t\t|                                                          |\n");
-    printf("\t\t| 1. Tambah Minuman                                        |\n");
-    printf("\t\t| 2. Ubah Minuman                                          |\n");
-    printf("\t\t| 3. Hapus Minuman                                         |\n");
-    printf("\t\t| 4. Lihat Daftar Minuman                                  |\n");
-    printf("\t\t| 5. Detail Minuman                                        |\n");
-    printf("\t\t| 6. Kembali                                               |\n");
-    printf("\t\t|                                                          |\n");
-    printf("\t\t|==========================================================|\n");
-
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                       >>CRUD MINUMAN<<                      |\n");
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|  1. Tambah Minuman                                          |\n");
+    printf("\t\t|  2. Ubah Minuman                                            |\n");
+    printf("\t\t|  3. Hapus Minuman                                           |\n");
+    printf("\t\t|  4. Lihat Daftar Minuman                                    |\n");
+    printf("\t\t|  5. Detail Minuman                                          |\n");
+    printf("\t\t|  6. Kembali                                                 |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                  COPYRIGHT 2021 | RestoApp                  |\n");
+    printf("\t\t|=============================================================|\n");
     printf("\n\t Masukkan pilihan anda : ");
     scanf("%d", &pilih);
     switch (pilih)
