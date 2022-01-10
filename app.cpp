@@ -1,48 +1,17 @@
 #include <iostream>
 #include "prototype.h"
-
-
-
-
+#include "loading.h"
 void daftar_menu(){
 	int pil = 0;
-
     system("cls");
     printf("\t\t|========================= Daftar Menu ====================|\n");
     printf("\t\t|                                                          |\n");
     printf("\t\t| 1. Makanan                                               |\n");
     printf("\t\t| 2. Minuman                                               |\n");
-    printf("\t\t| 3. Kembali ke Beranda                                    |\n");
+	printf("\t\t| 3. Transaksi                                             |\n");
+    printf("\t\t| 4. Kembali ke Beranda                                    |\n");
     printf("\t\t|                                                          |\n");
     printf("\t\t|==========================================================|\n");
-
-    printf("\n\t Mau beli apa ?  ");
-    scanf("%d", &pil);
-    switch (pil)
-    {
-        case 1:
-        {
-            system("cls");
-            daftar_menu_makanan();
-            break;
-        }
-        case 2:
-        {
-            system("cls");
-            minumanMenu();
-            break;
-        }
-        case 3:
-        {
-            system("cls");
-            app();
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
 }
 
 int app(){
@@ -53,9 +22,6 @@ int app(){
 	system("cls");
 	beranda();
 
-	// buat file data_transaksi.dat
-	buat_file_transaksi();
-	
     for (;;){
 
 		printf("\n\t Pilih Menu : ");
@@ -68,26 +34,20 @@ int app(){
 			{
 				system("cls"); // clear screen
 				// pilih daftar menu makanan atau minuman
-				daftar_menu();
+				transaksi_pemesanan();
 				break;
 			}
 			case 2:
 			{
-				system("cls");
-				// pilih daftar transaksi
-				transaksi();
-				// input_transaksi();
-				break;
-			}
-			case 3:
-			{
 				// exit program
 				system("cls");
+				salam();
 				exit(0);
-				return (0);
+				break;
 			}
 			default:
 			{
+				salam();
 				return (0);
 			}
         }

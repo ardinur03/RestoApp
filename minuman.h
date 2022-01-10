@@ -1,12 +1,12 @@
 #ifndef minuman_h
 #define minuman_h
 
-void minumanMenu();
 void tambah_minuman();
 void ubah_minuman();
 void hapus_minuman();
 void lihat_daftar_minuman();
 void detail_minuman();
+int daftar_menu_minuman();
 
 // data minuman
 typedef struct {

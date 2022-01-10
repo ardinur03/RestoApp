@@ -5,7 +5,7 @@
 #include <ctime>
 #include <cstring>
 #include "admin_resto.h"
-void detail_minuman_by_index(int index_minuman);
+#include "minuman.h"
 using namespace std;
 
 void kembali_crud_minuman();
@@ -13,7 +13,7 @@ void lihat_daftar_minuman();
 string nama_minuman;
 int harga_minuman;
 
-void minumanMenu()
+int daftar_menu_minuman()
 {
 
     char airmineral;
@@ -23,7 +23,8 @@ void minumanMenu()
     
     printf("\n\t Minuman apa yang ingin anda beli ?  ");
     scanf("%d", &pil);
-    detail_minuman_by_index(pil);
+
+    return pil;
 }
 
 // tambah minuman
@@ -229,29 +230,6 @@ void detail_minuman(){
     kembali_crud_minuman();
 }
 
-void detail_minuman_by_index(int index_minuman){
-    index_minuman -= 1;
-    minumanData dt_minuman[100];
-    FILE *f_minuman;
-    int id_minuman, pilih, i = 0;
-
-    f_minuman = fopen("data_minuman.dat", "rb");
-    if (!f_minuman)
-    {
-        printf("\n\t Gagal membuat file minuman.dat");
-        exit(1);
-    }
-
-    // file data_makanan.dat to array
-    while (fread(&dt_minuman[i], sizeof(dt_minuman[i]), 1, f_minuman))
-    {
-        i++;
-    }
-
-    printf("%s", dt_minuman[index_minuman].nama_minuman);
-    printf("%d", dt_minuman[index_minuman].harga_minuman);
-
-}
 
 void kembali_crud_minuman(){
     printf("\n\tTekan enter untuk kembali . . .");

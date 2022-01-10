@@ -3,83 +3,76 @@
 #include "transaksi.h"
 #include <conio.h>
 #include "admin_resto.h"
+#include "time.h"
 
-void tentang();
-
-// untuk tampilan pelanggan
-void welcome(){
-    char pilih;
+void welcome_app(){
     system("cls");
     printf("!=============================================================|\n");
-    printf("|                         SELAMAT DATANG                      |\n");
+    printf("|                       >>SELAMAT DATANG<<                    |\n");
     printf("!=============================================================|\n");
     printf("|                                                             |\n");
-    printf("|                      Y. Mulai Memesan                       |\n");
-    printf("|   T. Tentang                                  E. Keluar     |\n");
+    printf("|                                                             |\n");
+    printf("|                                                             |\n");
+    printf("|                       Y. Mulai Memesan                      |\n");
+    printf("|                                                             |\n");
+    printf("|                                                             |\n");
+    printf("|                                                             |\n");
+    printf("|   T. Tentang              L. Login               E. Keluar  |\n");
+    printf("|                                                             |\n");
     printf("!=============================================================|\n");
     printf("|                 Copyright 2021 - RestoApp                   |\n");
     printf("!=============================================================|\n");
-
-    printf("\n\t Masukkan pilihan anda : ");
-    scanf("%s", &pilih);
-    if (pilih == 'y' || pilih == 'Y')
-    {
-        system("cls");
-    	app();
-    }else if (pilih == 't' || pilih == 'T'){
-        system("cls");
-        tentang();
-    }else if (pilih == 'e' || pilih == 'E'){
-        // exit aplikasi
-        system("cls");
-        exit(0);
-    }else if(pilih == 'a' || pilih == 'A'){
-        system("cls");
-        admin_resto();
-    }
-    else{
-        system("cls");
-        printf("\n\t Inputan yang anda masukkan salah !!! ");
-        welcome(); // function rekursif
-    }
-
-
 }
 
 // untuk tampilan pelanggan
 void beranda() {
     system("cls");
-    printf("\t\t|====================== RESTO APP ======================|\n");
-    printf("\t\t|                                                       |\n");
-    printf("\t\t| 1. Lihat Daftar Menu                                  |\n");
-    printf("\t\t| 2. Lihat Transaksi                                    |\n");
-    printf("\t\t| 3. Tutup Aplikasi                                     |\n");
-    printf("\t\t|                                                       |\n");
-    printf("\t\t|=======================================================|\n");
-    
+    getTime();
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                      >>Beranda RestoApp<<                   |\n");
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|       1. Lihat Daftar Menu                                  |\n");
+    printf("\t\t|       2. Tutup Aplikasi                                     |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                  COPYRIGHT 2021 | RestoApp                  |\n");
+    printf("\t\t|=============================================================|\n");
 }
 
 void tentang(){
     char pilih;
     system("cls");
-    printf("\t\t|====================== RESTO APP ======================|\n");
-    printf("\t\t|                                                       |\n");
-    printf("\t\t| RestoApp adalah aplikasi pencatat transaksi restoran. |\n");
-    printf("\t\t| Dengan alur yang  sederhana dan mudah digunakan.      |\n");
-    printf("\t\t|                                                       |\n");
-    printf("\t\t|=======================================================|\n");
-    printf("\t\t|               COPYRIGHT 2021 | RestoApp               |\n");
-    printf("\t\t|=======================================================|\n");
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                         >>RestoApp<<                        |\n");
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|  RestoApp adalah aplikasi pencatat transaksi restoran.      |\n");
+    printf("\t\t|Dengan alur yang  sederhana dan mudah digunakan. Applikasi   |\n");
+    printf("\t\t|RestoApp ini terdapat dua user, yaitu Adim dan Pengguna      |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                  COPYRIGHT 2021 | RestoApp                  |\n");
+    printf("\t\t|=============================================================|\n");
     printf("\n\t klik enter untuk kembali... ");
     getche();
-
     welcome();
 }
 
 // untuk tampilan admin
 void beranda_admin(){
     system("cls");
-    printf("\t\t|====================== RESTO APP ADMIN ======================|\n");
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                      >>RestoApp Admin<<                     |\n");
+    printf("\t\t|=============================================================|\n");
     printf("\t\t|                                                             |\n");
     printf("\t\t| 1. CRUD Makanan                                             |\n");
     printf("\t\t| 2. CRUD Minuman                                             |\n");
@@ -88,6 +81,9 @@ void beranda_admin(){
     printf("\t\t| 5. Lihat Transaksi Pelanggan                                |\n");
     printf("\t\t| 6. Tutup Aplikasi                                           |\n");
     printf("\t\t|                                                             |\n");
+    printf("\t\t|                                                             |\n");
+    printf("\t\t|=============================================================|\n");
+    printf("\t\t|                  COPYRIGHT 2021 | RestoApp                  |\n");
     printf("\t\t|=============================================================|\n");
 }
 

@@ -8,8 +8,8 @@ void ubah_makanan();
 void hapus_makanan();
 void lihat_daftar_makanan();
 void detail_makanan();
-void detail_makanan_by_index(int index);
-void daftar_menu_makanan();
+int daftar_menu_makanan();
+
 
 // data makanan
 typedef struct {
