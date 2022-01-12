@@ -9,7 +9,7 @@ void gotoxy(int x,int y){
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-int getLoadingAdmin(){
+void getLoadingAdmin(){
 	system("color A");	
 	int r,q;
 	gotoxy(35,16);
@@ -19,10 +19,9 @@ int getLoadingAdmin(){
 		for(q=0;q<100000000;q++);
 		printf("%c",177);
 	}
-    return 0;
 }
 
-int salam(){
+void salam(){
     //deklarasi string x
     char x[]="TERIMAKASIH TELAH MENGGUNAKAN LAYANAN KAMI SALAM HANGAT DARI ADMIN RESTOAPP :)";
     //deklarasi variabel bertipe integer
@@ -41,5 +40,4 @@ int salam(){
         //mencetak string x per karakter
         printf("%c",x[i]);
     }
-    return 0;
 }

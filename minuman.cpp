@@ -15,15 +15,12 @@ int harga_minuman;
 
 int daftar_menu_minuman()
 {
-
-    char airmineral;
+    // local Variabel
     int pil;
-
-    lihat_daftar_minuman();
-    
+    lihat_daftar_minuman(); // melihat daftar Minuman
+    // pilih nomor id berdasarkan nomor index
     printf("\n\t Minuman apa yang ingin anda beli ?  ");
     scanf("%d", &pil);
-
     return pil;
 }
 

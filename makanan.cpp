@@ -11,7 +11,7 @@
 using namespace std;
 
 void kembali_crud_makanan();
-int ambil_nilai_berdasarkan_id(int p_id_makanan);
+void ambil_nilai_berdasarkan_id(int p_id_makanan);
 string nama_makanan;
 long int harga_makanan;
 
@@ -20,8 +20,7 @@ int daftar_menu_makanan(){
     system("cls");
     // local Variabel
     int pil, i =1;
-    
-    lihat_daftar_makanan();
+    lihat_daftar_makanan(); // melihat daftar makanan
     // pilih nomor id berdasarkan nomor index
     printf("\n\nPilih nomor makanan yang ingin dipesan : ");
     scanf("%d", &pil);
@@ -222,7 +221,7 @@ void kembali_crud_makanan(){
 
 
 // function cari id
-int ambil_nilai_berdasarkan_id(int p_id_makanan){
+void ambil_nilai_berdasarkan_id(int p_id_makanan){
     makananData dt_makanan;
     FILE *f_makanan;
     int id_makanan, pilih;
@@ -251,5 +250,4 @@ int ambil_nilai_berdasarkan_id(int p_id_makanan){
         printf("\n\tData Makanan tidak ditemukan !");
     }
 
-    return 0;
 }

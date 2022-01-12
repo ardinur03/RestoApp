@@ -17,5 +17,6 @@ typedef struct {
     char nama_makanan[50]; 
     long int harga_makanan;
 } makananData; 
+
 #endif
 

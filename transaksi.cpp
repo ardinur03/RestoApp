@@ -18,6 +18,7 @@
 
 using namespace std;
 
+// prototype ini di simpan di file yg sama bertujuan karena yang bisa akses hanya file ini saja
 void ambil_detail_pemesanan(int index_makanan, char jenis_pesanan);
 void beli_makanan_by_index(int param_index_makanan, int param_jumlah_porsi, int param_id_transaksi);
 void beli_minuman_by_index(int param_index_minuman, int param_jumlah_porsi, int param_id_transaksi);
@@ -26,7 +27,7 @@ void cetak_struk_transaksi(int param_id_transaksi);
 
 int create_transaksi();
 int create_nama_pelanggan();
-int cek_diskon(int param_id_transaksi);
+void cek_diskon(int param_id_transaksi);
 int temp_id_transaksi, temp_index_makanan, temp_index_minuman, temp_harga_normal, temp_diskon, temp_harga_total, temp_jumlah_porsi_makanan, temp_jumlah_harga_makanan_perporsi, temp_jumlah_harga_minuman_perporsi, jumlah_porsi_minuman_temp;
 char temp_makanan[50], temp_minuman[50], temp_nama_pelanggan[50];
 
@@ -467,7 +468,7 @@ void cetak_struk_transaksi(int param_id_transaksi_struk){
 }
 
 // cek diskon
-int cek_diskon(int param_harga_total){
+void cek_diskon(int param_harga_total){
     char a[2] = "|";
     if(param_harga_total >= 100000){
         // diskon 10%
@@ -479,7 +480,6 @@ int cek_diskon(int param_harga_total){
     } else {
         printf("\t\t|   Total Harga                : %d              %27s\n", param_harga_total, a);
     }
-    return 0;
 }
 
 // lihat semua daftar transaksi

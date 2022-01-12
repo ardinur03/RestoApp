@@ -74,8 +74,8 @@ void beranda_admin(){
     printf("\t\t|                      >>RestoApp Admin<<                     |\n");
     printf("\t\t|=============================================================|\n");
     printf("\t\t|                                                             |\n");
-    printf("\t\t| 1. CRUD Makanan                                             |\n");
-    printf("\t\t| 2. CRUD Minuman                                             |\n");
+    printf("\t\t| 1. Mengelola Makanan                                        |\n");
+    printf("\t\t| 2. Mengelola Minuman                                        |\n");
     printf("\t\t| 3. Lihat Transaksi                                          |\n");
     printf("\t\t| 4. Lihat Pelanggan                                          |\n");
     printf("\t\t| 5. Lihat Transaksi Pelanggan                                |\n");
@@ -88,8 +88,7 @@ void beranda_admin(){
 }
 
 
-
-
+// validasi input  harus huruf
 
 
 

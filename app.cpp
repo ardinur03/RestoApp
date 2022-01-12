@@ -17,16 +17,12 @@ void daftar_menu(){
 int app(){
 
     int pil = 0;
-
 	// munculkan menu utama
 	system("cls");
 	beranda();
-
     for (;;){
-
 		printf("\n\t Pilih Menu : ");
         scanf("%d", &pil);
-
 		// pemilihan menu
 		switch (pil)
 		{
