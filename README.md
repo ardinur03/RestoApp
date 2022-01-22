@@ -1,14 +1,14 @@
 # RestoApp
 
-RestoApp adalah aplikasi pencatat transaksi restoran. Dengan alur yang sederhana dan mudah digunakan. Applikasi RestoApp ini terdapat dua user, yaitu Adim dan Pengguna
+RestoApp adalah aplikasi pencatat transaksi restoran. Dengan alur yang sederhana dan mudah digunakan. Dengan fitur cetak transaksi dan fitur cetak struk pembelian ini memungkinkan pelanggan mengetahui harga total yang harus di bayar. Aplikasi RestoApp ini terdapat dua user, yaitu Admin dan Pengguna
 
 ## Fitur -Fitur
 
 A. Admin
 
 - Login
-- CRUD Makanan
-- CRUD Minuman
+- Mengelola Makanan (Tambah, Update, Hapus, Lihat)
+- Mengelola Minuman (Tambah, Update, Hapus, Lihat)
 - Lihat Daftar Transaksi
 - Hapus Data Transaksi
 - Lihat Pelanggan
